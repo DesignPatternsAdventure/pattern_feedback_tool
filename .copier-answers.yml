@@ -1,0 +1,21 @@
+# yamllint disable-file
+# Answer file maintained by Copier for: https://github.com/KyleKing/calcipy_template
+# Check into version control. Edit by re-running copier and changing responses to the questions
+_commit: 0.13.3
+_src_path: gh:KyleKing/calcipy_template
+author_email: dev.act.kyle@gmail.com
+author_name: Kyle King
+author_username: kyleking
+cname: pattern_feedback_tool.kyleking.me
+copyright_date: '2022'
+development_branch: main
+doc_dir: docs
+include_adrs: false
+install_extras: null
+minimum_python: 3.10.5
+package_name_py: pattern_feedback_tool
+project_description: Design Pattern Feedback Tool
+project_name: pattern_feedback_tool
+repository_namespace: DesignPatternsAdventure
+repository_provider: https://github.com
+
