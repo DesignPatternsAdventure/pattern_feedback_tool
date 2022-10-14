@@ -5,7 +5,7 @@
 ```sh
 git clone https://github.com/DesignPatternsAdventure/pattern_feedback_tool.git
 cd pattern_feedback_tool
-poetry install 
+poetry install
 
 # See the available tasks
 poetry run doit list

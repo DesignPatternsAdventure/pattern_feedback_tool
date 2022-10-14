@@ -9,7 +9,7 @@ Design Pattern Feedback Tool
 1. ...
 
    ```sh
-   import 
+   import
 
    # < TODO: Add example code here >
    ```
