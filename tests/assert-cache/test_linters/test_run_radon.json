@@ -1,0 +1,683 @@
+{
+  "_info": [
+    {
+      "func_args": {},
+      "test_file": "test_linters.py",
+      "test_name": "test_run_radon"
+    }
+  ],
+  "_json": {
+    "/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/tests/data/sample_code/game_view.py": [
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 37,
+        "endline": 544,
+        "lineno": 408,
+        "name": "on_update",
+        "rank": "E",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 24,
+        "endline": 599,
+        "lineno": 546,
+        "name": "on_key_press",
+        "rank": "D",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 6,
+        "endline": 391,
+        "lineno": 332,
+        "name": "on_draw",
+        "rank": "B",
+        "type": "method"
+      },
+      {
+        "col_offset": 0,
+        "complexity": 5,
+        "endline": 663,
+        "lineno": 130,
+        "methods": [
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 186,
+            "lineno": 135,
+            "name": "__init__",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 4,
+            "endline": 219,
+            "lineno": 188,
+            "name": "switch_map",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 2,
+            "endline": 230,
+            "lineno": 221,
+            "name": "setup_physics",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 246,
+            "lineno": 233,
+            "name": "setup",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 266,
+            "lineno": 248,
+            "name": "load_hotbar_sprites",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 279,
+            "lineno": 268,
+            "name": "setup_debug_menu",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 282,
+            "lineno": 281,
+            "name": "enable_debug_menu",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 285,
+            "lineno": 284,
+            "name": "disable_debug_menu",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 290,
+            "lineno": 287,
+            "name": "noclip",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 2,
+            "endline": 296,
+            "lineno": 292,
+            "name": "hyper",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 4,
+            "endline": 330,
+            "lineno": 299,
+            "name": "draw_inventory",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 6,
+            "endline": 391,
+            "lineno": 332,
+            "name": "on_draw",
+            "rank": "B",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 400,
+            "lineno": 393,
+            "name": "scroll_to_player",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 2,
+            "endline": 406,
+            "lineno": 402,
+            "name": "on_show_view",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 37,
+            "endline": 544,
+            "lineno": 408,
+            "name": "on_update",
+            "rank": "E",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 24,
+            "endline": 599,
+            "lineno": 546,
+            "name": "on_key_press",
+            "rank": "D",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 602,
+            "lineno": 601,
+            "name": "close_message_box",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 4,
+            "endline": 626,
+            "lineno": 604,
+            "name": "search",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 5,
+            "endline": 639,
+            "lineno": 629,
+            "name": "on_key_release",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 643,
+            "lineno": 641,
+            "name": "on_mouse_motion",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 2,
+            "endline": 648,
+            "lineno": 645,
+            "name": "on_mouse_press",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 652,
+            "lineno": 650,
+            "name": "on_mouse_release",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "GameView",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 2,
+            "endline": 663,
+            "lineno": 654,
+            "name": "on_resize",
+            "rank": "A",
+            "type": "method"
+          }
+        ],
+        "name": "GameView",
+        "rank": "A",
+        "type": "class"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 5,
+        "endline": 639,
+        "lineno": 629,
+        "name": "on_key_release",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 4,
+        "endline": 219,
+        "lineno": 188,
+        "name": "switch_map",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 4,
+        "endline": 330,
+        "lineno": 299,
+        "name": "draw_inventory",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 4,
+        "endline": 626,
+        "lineno": 604,
+        "name": "search",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "col_offset": 0,
+        "complexity": 2,
+        "endline": 127,
+        "lineno": 22,
+        "methods": [
+          {
+            "classname": "DebugMenu",
+            "closures": [],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 90,
+            "lineno": 23,
+            "name": "__init__",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "DebugMenu",
+            "closures": [
+              {
+                "closures": [],
+                "col_offset": 8,
+                "complexity": 3,
+                "endline": 103,
+                "lineno": 95,
+                "name": "toggle",
+                "rank": "A",
+                "type": "function"
+              }
+            ],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 109,
+            "lineno": 92,
+            "name": "setup_noclip",
+            "rank": "A",
+            "type": "method"
+          },
+          {
+            "classname": "DebugMenu",
+            "closures": [
+              {
+                "closures": [],
+                "col_offset": 8,
+                "complexity": 3,
+                "endline": 122,
+                "lineno": 114,
+                "name": "toggle",
+                "rank": "A",
+                "type": "function"
+              }
+            ],
+            "col_offset": 4,
+            "complexity": 1,
+            "endline": 127,
+            "lineno": 111,
+            "name": "setup_hyper",
+            "rank": "A",
+            "type": "method"
+          }
+        ],
+        "name": "DebugMenu",
+        "rank": "A",
+        "type": "class"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 2,
+        "endline": 230,
+        "lineno": 221,
+        "name": "setup_physics",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 2,
+        "endline": 296,
+        "lineno": 292,
+        "name": "hyper",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 2,
+        "endline": 406,
+        "lineno": 402,
+        "name": "on_show_view",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 2,
+        "endline": 648,
+        "lineno": 645,
+        "name": "on_mouse_press",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 2,
+        "endline": 663,
+        "lineno": 654,
+        "name": "on_resize",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "DebugMenu",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 90,
+        "lineno": 23,
+        "name": "__init__",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "DebugMenu",
+        "closures": [
+          {
+            "closures": [],
+            "col_offset": 8,
+            "complexity": 3,
+            "endline": 103,
+            "lineno": 95,
+            "name": "toggle",
+            "rank": "A",
+            "type": "function"
+          }
+        ],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 109,
+        "lineno": 92,
+        "name": "setup_noclip",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "DebugMenu",
+        "closures": [
+          {
+            "closures": [],
+            "col_offset": 8,
+            "complexity": 3,
+            "endline": 122,
+            "lineno": 114,
+            "name": "toggle",
+            "rank": "A",
+            "type": "function"
+          }
+        ],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 127,
+        "lineno": 111,
+        "name": "setup_hyper",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 186,
+        "lineno": 135,
+        "name": "__init__",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 246,
+        "lineno": 233,
+        "name": "setup",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 266,
+        "lineno": 248,
+        "name": "load_hotbar_sprites",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 279,
+        "lineno": 268,
+        "name": "setup_debug_menu",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 282,
+        "lineno": 281,
+        "name": "enable_debug_menu",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 285,
+        "lineno": 284,
+        "name": "disable_debug_menu",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 290,
+        "lineno": 287,
+        "name": "noclip",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 400,
+        "lineno": 393,
+        "name": "scroll_to_player",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 602,
+        "lineno": 601,
+        "name": "close_message_box",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 643,
+        "lineno": 641,
+        "name": "on_mouse_motion",
+        "rank": "A",
+        "type": "method"
+      },
+      {
+        "classname": "GameView",
+        "closures": [],
+        "col_offset": 4,
+        "complexity": 1,
+        "endline": 652,
+        "lineno": 650,
+        "name": "on_mouse_release",
+        "rank": "A",
+        "type": "method"
+      }
+    ],
+    "/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/tests/data/sample_code/load_game_map.py": [
+      {
+        "closures": [],
+        "col_offset": 0,
+        "complexity": 19,
+        "endline": 177,
+        "lineno": 32,
+        "name": "load_map",
+        "rank": "C",
+        "type": "function"
+      },
+      {
+        "closures": [],
+        "col_offset": 0,
+        "complexity": 5,
+        "endline": 211,
+        "lineno": 180,
+        "name": "load_maps",
+        "rank": "A",
+        "type": "function"
+      },
+      {
+        "col_offset": 0,
+        "complexity": 1,
+        "endline": 29,
+        "lineno": 22,
+        "methods": [],
+        "name": "GameMap",
+        "rank": "A",
+        "type": "class"
+      }
+    ]
+  }
+}
