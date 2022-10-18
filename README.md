@@ -1,4 +1,4 @@
-# pattern_feedback_tool (pattern_feedback_tool)
+# pattern_feedback_tool
 
 Design Pattern Feedback Tool
 
