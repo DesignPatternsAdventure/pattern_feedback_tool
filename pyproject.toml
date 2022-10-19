@@ -45,9 +45,13 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10.5"
-calcipy = ">=0.19.0"
+calcipy = ">=0.20.0"
+code2flow = ">=2.5.0"
+pycg = ">=0.0.6"
 radon = ">=5.1.0"
+rich = ">=12.6.0"
 
 [tool.poetry.group.dev.dependencies]
+beautifulsoup4 = ">=4.11.1"
 calcipy = { version = "*", extras = ["dev", "lint", "test"] }
 pytest-cache-assert = ">=3.0.4"

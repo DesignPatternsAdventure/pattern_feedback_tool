@@ -38,13 +38,14 @@ def run_radon(
 
     Args:
         arg_path: "Directory containing source files to analyze, or multiple file paths"
-        min_score: minimum score to log
+        min_score: minimum score to log. Default is 'A'
+        radon_harvester: Alternatives are HCHarvester, MIHarvester, and RawHarvester. Default is CCHarvester
 
     Returns:
         str: markdown-formatted table
 
     """
-    _harvester: _HARV_TYPE = radon_harvester or CCHarvester
+    harvester: _HARV_TYPE = radon_harvester or CCHarvester
     config = Config(
         exclude='',
         ignore='',
@@ -55,5 +56,11 @@ def run_radon(
         max='F',
         show_complexity=True,
     )
-    harv = _harvester([arg_path.as_posix()], config)
-    return harv.as_md()
+    return harvester([arg_path.as_posix()], config).as_md()
+
+
+# ---------------- TODO: Flake8 ----------------
+
+# ---------------- TODO: pylint ----------------
+
+# ---------------- TODO: mypy ----------------

@@ -18,6 +18,9 @@ TEST_DATA_DIR = TEST_DIR / 'data'
 TEST_TMP_CACHE = TEST_DIR / '_tmp_cache'
 """Path to the temporary cache folder in the Test directory."""
 
+SAMPLE_CODE_DIR = TEST_DATA_DIR / 'sample_code'
+"""Default standard code used for testing."""
+
 
 def clear_test_cache() -> None:
     """Remove the test cache directory if present."""

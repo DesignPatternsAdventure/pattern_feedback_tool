@@ -2,9 +2,7 @@ from radon.cli.harvest import CCHarvester
 
 from pattern_feedback_tool.linters import run_radon
 
-from .configuration import TEST_DATA_DIR
-
-SAMPLE_CODE_DIR = TEST_DATA_DIR / 'sample_code'
+from .configuration import SAMPLE_CODE_DIR
 
 
 def test_run_radon(assert_against_cache):
