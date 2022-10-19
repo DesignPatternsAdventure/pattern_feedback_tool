@@ -18,8 +18,9 @@ line_length = 120
 multi_line_output = 5
 
 [tool.calcipy.test]
+pythons = ["3.10"]
 # FIXME: Make these (pylint, flake8, mypy) arguments part of the "game" test code
-args_pytest = "-l --ff --nf -v --pylint --flake8 --mypy"  # -x
+args_pytest = "-l --ff --nf -v --pylint"
 
 [tool.poetry]
 name = "pattern_feedback_tool"
@@ -50,8 +51,8 @@ python = "^3.10.5"
 calcipy = ">=0.20.0"
 code2flow = ">=2.5.0"
 pycg = ">=0.0.6"
-pytest-flake8 = ">=1.1.1"
-pytest-mypy = ">=0.10.0"
+# pytest-flake8 = ">=1.1.1"  # Switch to flake8 CLI: https://github.com/tholo/pytest-flake8/issues/87
+# pytest-mypy = ">=0.10.0"  # Switch to CLI, dumps "ImportError"
 pytest-pylint = ">=0.19.0"
 radon = ">=5.1.0"
 rich = ">=12.6.0"  # TODO: Pretty print the radon output table
