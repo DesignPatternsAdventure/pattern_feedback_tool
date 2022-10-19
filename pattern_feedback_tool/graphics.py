@@ -15,7 +15,7 @@ from pycg.utils.constants import CALL_GRAPH_OP
 def run_code2flow(
     arg_path: Path,
     output_image: Path,
-    **kwargs,
+    **kwargs: dict,
 ) -> None:
     """Run code2flow to generate a call graph.
 
@@ -23,13 +23,62 @@ def run_code2flow(
 
     Args:
         arg_path: "Directory containing source files to analyze, or multiple file paths"
+        output_image: Image file to create (SVG, PNG, etc.)
+        **kwargs: additional keyword arguments
 
     """
     code2flow(raw_source_paths=[arg_path], output_file=output_image.as_posix(), **kwargs)
 
 
-# ---------------- TODO: pylint.pyreverse ----------------
-# See: https://github.com/PyCQA/pylint/blob/c2989ad5c71b3e1be0f0a7e5297f9b7e47fa2766/tests/pyreverse/conftest.py
+# ---------------- PLANNED: pylint.pyreverse ----------------
+
+
+@beartype
+def run_pyreverse(
+    arg_path: Path,
+    package: str = 'No Name',
+    **kwargs: dict,
+) -> None:
+    """Run pyreverse to generate a class diagram.
+
+    - Based on: https://github.com/PyCQA/pylint/blob/7088409227e826ed8720886252fe05265daa9045/pylint/pyreverse/main.py#L231-L246
+
+    Args:
+        arg_path: "Directory containing source files to analyze, or multiple file paths"
+        package: string package name. Default is "No Name"
+        **kwargs: additional keyword arguments for pyreverse config
+
+    Returns:
+        str: plantuml syntax
+
+    """
+    # See: https://github.com/PyCQA/pylint/blob/7088409227e826ed8720886252fe05265daa9045/pylint/__init__.py#L60-L67
+    # And how mocked in unit tests:
+    #   https://github.com/PyCQA/pylint/tree/7088409227e826ed8720886252fe05265daa9045/tests/pyreverse
+    raise NotImplementedError('pyreverse should probably be called from shell')
+
+    # from argparse import Namespace
+    # from pylint.pyreverse.main import fix_import_path, project_from_files, Linker, DiadefsHandler, writer, OPTIONS
+    #
+    # config_kwargs = {
+    #     str(value.get("dest") or key.replace('-', '_')): value["default"]
+    #     for key, value in dict(OPTIONS).items()
+    # }
+    # config_kwargs["classes"] = config_kwargs["classes"] or []
+    # config_kwargs["output_format"] = 'plantuml'
+    # config_kwargs["output_directory"] = 'tmp'
+    # config = Namespace(**(config_kwargs | kwargs))
+
+    # args = [arg_path.as_posix()]
+    # # https://github.com/PyCQA/pylint/blob/7088409227e826ed8720886252fe05265daa9045/pylint/lint/utils.py#L89
+    # with fix_import_path(args):
+    #     # https://github.com/PyCQA/pylint/blob/7088409227e826ed8720886252fe05265daa9045/pylint/pyreverse/inspector.py#L316
+    #     project = project_from_files(args, project_name=package or "No Name")
+    #     linker = Linker(project, tag=True)
+    #     handler = DiadefsHandler(config)
+    #     diadefs = handler.get_diadefs(project, linker)
+    # writer.DiagramWriter(config).write(diadefs)
+
 
 # ---------------- pycg ----------------
 
@@ -39,7 +88,7 @@ def run_pycg(
     arg_path: Path,
     package: str | None = None,
     max_iter: int = -1,
-    **kwargs,
+    **kwargs: dict,
 ) -> dict:
     """Run pycg to generate a call graph.
 
@@ -47,6 +96,12 @@ def run_pycg(
 
     Args:
         arg_path: "Directory containing source files to analyze, or multiple file paths"
+        package: optional package name. Default is None
+        max_iter: integer iterations. Default is -1 to defer to pycg
+        **kwargs: additional keyword arguments
+
+    Returns:
+        dict: call graph
 
     """
     cg = CallGraphGenerator([arg_path], package=package, max_iter=max_iter, operation=CALL_GRAPH_OP, **kwargs)

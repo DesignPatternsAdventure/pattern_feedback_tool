@@ -1,6 +1,7 @@
+import pytest
 from bs4 import BeautifulSoup
 
-from pattern_feedback_tool.graphics import run_code2flow, run_pycg
+from pattern_feedback_tool.graphics import run_code2flow, run_pycg, run_pyreverse
 
 from .configuration import SAMPLE_CODE_DIR
 
@@ -14,6 +15,11 @@ def test_run_code2flow(assert_against_cache, fix_test_cache):
         soup = BeautifulSoup(fp)
     text_tags = sorted(_t.text for _t in soup.find_all('text'))
     assert_against_cache(text_tags)
+
+
+def test_run_pyreverse(assert_against_cache):
+    with pytest.raises(NotImplementedError):
+        run_pyreverse(SAMPLE_CODE_DIR, package='rpg')
 
 
 def test_run_pycg(assert_against_cache):

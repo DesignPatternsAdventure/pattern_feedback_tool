@@ -61,6 +61,14 @@ def run_radon(
 
 # ---------------- TODO: Flake8 ----------------
 
-# ---------------- TODO: pylint ----------------
+# ---------------- Planned: pylint ----------------
+
+
+@beartype
+def run_pylint() -> None:
+    """Run pylint to find linting errors."""
+    # See: https://github.com/PyCQA/pylint/blob/7088409227e826ed8720886252fe05265daa9045/pylint/__init__.py#L27-L37
+    raise NotImplementedError('pylint should probably be called from shell')
+
 
 # ---------------- TODO: mypy ----------------
