@@ -15,7 +15,7 @@ from pycg.utils.constants import CALL_GRAPH_OP
 def run_code2flow(
     arg_path: Path,
     output_image: Path,
-    **kwargs: dict,
+    **kwargs: dict,  # type: ignore[type-arg]
 ) -> None:
     """Run code2flow to generate a call graph.
 
@@ -37,7 +37,7 @@ def run_code2flow(
 def run_pyreverse(
     arg_path: Path,
     package: str = 'No Name',
-    **kwargs: dict,
+    **kwargs: dict,  # type: ignore[type-arg]
 ) -> None:
     """Run pyreverse to generate a class diagram.
 
@@ -88,8 +88,8 @@ def run_pycg(
     arg_path: Path,
     package: str | None = None,
     max_iter: int = -1,
-    **kwargs: dict,
-) -> dict:
+    **kwargs: dict,  # type: ignore[type-arg]
+) -> dict:  # type: ignore[type-arg]
     """Run pycg to generate a call graph.
 
     - Based on: https://github.com/vitsalis/PyCG/blob/99c991e585615263f36fae5849df9c2daa684021/pycg/__main__.py#L75-L89
@@ -112,7 +112,7 @@ def run_pycg(
     # FASTEN format is probably easier to parse, but Simple is more human readable
     # formatter = formats.Fasten(cg, package=package, product="", forge="", version="", timestamp=0)
 
-    return formatter.generate()
+    return formatter.generate()  # type: ignore[no-any-return]
 
     # Also experimented with the graph output, but similar to Simple
     # as_formatter = formats.AsGraph(cg)

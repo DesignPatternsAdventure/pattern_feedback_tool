@@ -18,7 +18,7 @@ TEST_DATA_DIR = TEST_DIR / 'data'
 TEST_TMP_CACHE = TEST_DIR / '_tmp_cache'
 """Path to the temporary cache folder in the Test directory."""
 
-SAMPLE_CODE_DIR = TEST_DATA_DIR / 'sample_code'
+SAMPLE_CODE_DIR = TEST_DATA_DIR.parents[1] / 'test-data/sample_code'
 """Default standard code used for testing."""
 
 
