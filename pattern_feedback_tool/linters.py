@@ -10,8 +10,6 @@ from radon.cli import Config
 from radon.cli.harvest import CCHarvester
 from radon.complexity import LINES
 
-# FIXME: Aggregate flake8, mypy, radon, and other warnings?
-
 # ---------------- Radon ----------------
 
 
@@ -59,9 +57,9 @@ def run_radon(
     return harvester([arg_path.as_posix()], config).as_md()
 
 
-# ---------------- TODO: Flake8 ----------------
+# ---------------- Planned: Flake8 (run with pytest) ----------------
 
-# ---------------- Planned: pylint ----------------
+# ---------------- Planned: pylint (run with pytest) ----------------
 
 
 @beartype
@@ -71,4 +69,4 @@ def run_pylint() -> None:
     raise NotImplementedError('pylint should probably be called from shell')
 
 
-# ---------------- TODO: mypy ----------------
+# ---------------- Planned: mypy (run with pytest) ----------------
