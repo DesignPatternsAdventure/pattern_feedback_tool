@@ -8,4 +8,5 @@ from .configuration import SAMPLE_CODE_DIR
 def test_run_radon(assert_against_cache):
     results = run_radon(SAMPLE_CODE_DIR, min_score='D', radon_harvester=CCHarvester)
 
-    assert_against_cache(results.split('\n'))
+    cleaned_results = results.replace(SAMPLE_CODE_DIR.parent.as_posix(), '~')
+    assert_against_cache(cleaned_results.split('\n'))

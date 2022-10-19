@@ -10,8 +10,8 @@
     "",
     "| Filename | Name | Type | Start:End Line | Complexity | Clasification |",
     "| -------- | ---- | ---- | -------------- | ---------- | ------------- |",
-    "| /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/tests/data/sample_code/game_view.py | GameView.on_update | M | 409:543 | 37 | E |",
-    "| /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/tests/data/sample_code/game_view.py | GameView.on_key_press | M | 545:598 | 24 | D |",
+    "| ~/sample_code/game_view.py | GameView.on_update | M | 409:543 | 37 | E |",
+    "| ~/sample_code/game_view.py | GameView.on_key_press | M | 545:598 | 24 | D |",
     ""
   ]
 }
