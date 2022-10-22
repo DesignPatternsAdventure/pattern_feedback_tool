@@ -12,8 +12,9 @@ include-naming-hint=yes
 check-protected-access-in-special-methods=yes
 
 [DESIGN]
-exclude-too-few-public-methods=BaseModel,Protocol
-ignored-parents=Protocol
+# # TODO: I don't know if these work
+# exclude-too-few-public-methods=BaseModel,Protocol
+# ignored-parents=Protocol
 max-args=5
 max-attributes=7
 max-bool-expr=4  # Def: 5
@@ -29,17 +30,17 @@ min-public-methods=1  # Def: 2
 # PLANNED: Continue to exclude noisy errors
 disable=fixme,
         line-too-long,
-        missing-function-docstring
+        missing-class-docstring,
+        missing-function-docstring,
+        missing-module-docstring,
+        too-few-public-methods,
+        wrong-import-order
 
 [REFACTORING]
 max-nested-blocks=3
 
 [REPORTS]
 output-format=colorized
-; reports=yes
-
-[SIMILARITIES]
-min-similarity-lines=3
 
 [STRING]
 check-quote-consistency=yes
