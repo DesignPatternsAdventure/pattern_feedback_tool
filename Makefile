@@ -1,10 +1,15 @@
 # Configuration Settings
-GIT_COMMIT := 70653ea19d0c34d847813c29b1004af967900ce9
+GIT_COMMIT := 6b95fcaf2270f0a2dbf8e6a969585a9f20ace4cb
 
 I_TEST_DIR := integration_tests
-T1_LOG := $(I_TEST_DIR)/t1_pylint.log
+C1_LOG := c1_pylint.log
+C2_DIR := c2_pyreverse
+C3_LOG := c3_flake8.log
 
+# On Mac, can install these opinionated tools with brew:
+# 	brew install gojq jc
 JQ := gojq  # Use either jq or gojq
+CAT := cat  # Use either cat or bat
 
 .PHONY: clean
 clean:  # Remove the local copy of the integration test code
@@ -15,14 +20,42 @@ clean:  # Remove the local copy of the integration test code
 reset: clean  # Reset the test code used for integration testing
 	@echo "\nCloning test code for commit=$(GIT_COMMIT)"
 	@gh repo clone DesignPatternsAdventure/community-rpg $(I_TEST_DIR)
-	@cd $(I_TEST_DIR) && git reset --hard $(GIT_COMMIT)
+	@cd $(I_TEST_DIR) && git reset --hard $(GIT_COMMIT) && poetry install && poetry run pip install ../../pattern_feedback_tool
+
+.PHONY: _run
+_run: $(if $(wildcard $(I_TEST_DIR)), , reset)
+	@echo "\nRunning pattern feedback tool integration checks"
+
+.PHONY: update
+update:  # Sync with latest feedback tool code
+	@echo "\nUpdating integration test against latest feedback tool code"
+	poetry version patch
+	@cd $(I_TEST_DIR) && poetry update && poetry install --sync
+
+.PHONY: check1
+check1: _run  # pylint
+	@echo "\nRunning $@"
+	@cd $(I_TEST_DIR) && poetry run pylint rpg --rcfile=.pylintrc --output-format=json --output=$(C1_LOG) --exit-zero
+	@($(CAT) $(I_TEST_DIR)/$(C1_LOG) | $(JQ) 'map(.symbol) | unique') >$(I_TEST_DIR)/$(C1_LOG).json
+	@$(CAT) $(I_TEST_DIR)/$(C1_LOG).json
+
+# Note: checks folder is flat, so these diagrams aren't useful yet .Using "rpg" for demo
+.PHONY: check2
+check2: _run  # pyreverse
+	@echo "\nRunning $@"
+	@$(RM) -f $(I_TEST_DIR)/$(C2_DIR)
+	@mkdir -p $(I_TEST_DIR)/$(C2_DIR)
+	@cd $(I_TEST_DIR) && poetry run pyreverse rpg --output svg --output-directory $(C2_DIR)
+
+.PHONY: check3
+check3: _run  # flake8
+	@echo "\nRunning $@"
+	@$(RM) $(I_TEST_DIR)/$(C3_LOG)
+	cd $(I_TEST_DIR) && poetry run flake8 rpg --config=.flake8 --output-file=$(C3_LOG) --exit-zero
+	$(CAT) $(I_TEST_DIR)/$(C3_LOG)
 
 .PHONY: run
-run: $(if $(wildcard $(I_TEST_DIR)), , reset)  # Run the integration tests
-	@echo "\nRunning tests"
-	poetry run pylint $(I_TEST_DIR)/rpg --rcfile=.pylintrc --output-format=json --output=$(T1_LOG) --exit-zero
-	@(cat $(T1_LOG) | $(JQ) 'map(.symbol) | unique') >$(T1_LOG).json
-	@cat $(T1_LOG).json
+run: _run check1 check2 check3  # Run the integration tests
 
 # -----------------------------------------------------------------------------------------------------------------
 # -----------------------       (Makefile helpers and decoration)      --------------------------------------------
