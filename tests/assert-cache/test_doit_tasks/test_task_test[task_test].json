@@ -1,0 +1,18 @@
+{
+  "_info": [
+    {
+      "func_args": {
+        "task": "<function task_test(..)>"
+      },
+      "test_file": "test_doit_tasks.py",
+      "test_name": "test_task_test"
+    }
+  ],
+  "_json": {
+    "actions": [
+      "Cmd: poetry run pytest \"/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/task_1/tests\" "
+    ],
+    "title": "<function _show_cmd(..)>",
+    "verbosity": 2
+  }
+}

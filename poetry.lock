@@ -32,7 +32,7 @@ test = ["coverage", "flake8", "pexpect", "wheel"]
 name = "arrow"
 version = "1.2.3"
 description = "Better dates & times for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -197,7 +197,7 @@ colorama = {version = "*", markers = "sys_platform == \"win32\""}
 name = "bidict"
 version = "0.22.0"
 description = "The bidirectional mapping library for Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -242,7 +242,7 @@ python-versions = ">=3.7"
 name = "calcipy"
 version = "0.20.1"
 description = "Python package to simplify development. Includes functionality for task running, testing, linting, documenting, and more"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8.4,<4.0.0"
 
@@ -358,7 +358,7 @@ test = ["diff-cover (>=6.5.0)", "nox-poetry (>=1.0.0)", "pytest (>=7.1.2)", "pyt
 name = "cement"
 version = "3.0.8"
 description = "Application Framework for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -377,7 +377,7 @@ yaml = ["pyYaml"]
 name = "certifi"
 version = "2022.9.24"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -385,7 +385,7 @@ python-versions = ">=3.6"
 name = "cfgv"
 version = "3.3.1"
 description = "Validate configuration and produce human readable error messages."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.1"
 
@@ -401,7 +401,7 @@ python-versions = ">=3.6"
 name = "charset-normalizer"
 version = "2.1.1"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6.0"
 
@@ -558,7 +558,7 @@ python-versions = ">=3.6"
 name = "decorator"
 version = "5.1.1"
 description = "Decorators for Humans"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -603,11 +603,11 @@ toml = ["tomli (>=1.2.1)"]
 
 [[package]]
 name = "dill"
-version = "0.3.5.1"
+version = "0.3.6"
 description = "serialize all of python"
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*"
+python-versions = ">=3.7"
 
 [package.extras]
 graph = ["objgraph (>=1.7.2)"]
@@ -616,7 +616,7 @@ graph = ["objgraph (>=1.7.2)"]
 name = "distlib"
 version = "0.3.6"
 description = "Distribution utilities"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -696,7 +696,7 @@ tomli = ">=2.0.0,<3"
 name = "filelock"
 version = "3.8.0"
 description = "A platform independent file lock."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1058,7 +1058,7 @@ flake8 = "*"
 name = "flake8-pytest-style"
 version = "1.6.0"
 description = "A flake8 plugin checking common style issues or inconsistencies with pytest-based tests."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.2,<4.0.0"
 
@@ -1124,6 +1124,18 @@ python-versions = "*"
 flake8 = "*"
 
 [[package]]
+name = "flake8-super"
+version = "0.1.3"
+description = "Python 3 super() check for flake8"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+flake8 = ">3.0.0"
+flake8-plugin-utils = ">=1.3.2,<1.4.0"
+
+[[package]]
 name = "flake8-tuple"
 version = "0.4.1"
 description = "Check code for 1 element tuple."
@@ -1145,6 +1157,17 @@ python-versions = ">=3.7"
 
 [package.dependencies]
 flake8 = ">=5.0"
+
+[[package]]
+name = "flake8-use-pathlib"
+version = "0.3.0"
+description = "A plugin for flake8 finding use of functions that can be replaced by pathlib module."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+flake8 = ">=3.6"
 
 [[package]]
 name = "flake8-variables-names"
@@ -1240,7 +1263,7 @@ pyparsing = {version = ">=2.4.2,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.0.2 || >3.0
 name = "identify"
 version = "2.5.6"
 description = "File identification library for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1251,7 +1274,7 @@ license = ["ukkonen"]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1366,7 +1389,7 @@ tomli = ">=2.0.1,<3"
 name = "loguru"
 version = "0.6.0"
 description = "Python logging made (stupidly) simple"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -1659,7 +1682,7 @@ python-versions = "*"
 name = "nodeenv"
 version = "1.7.0"
 description = "Node.js virtual environment builder"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*"
 
@@ -1701,7 +1724,7 @@ tomlkit = ">=0.7"
 name = "numpy"
 version = "1.23.4"
 description = "NumPy is the fundamental package for array computing with Python."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8"
 
@@ -1731,7 +1754,7 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 name = "pandas"
 version = "1.5.1"
 description = "Powerful data structures for data analysis, time series, and statistics"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8"
 
@@ -1838,7 +1861,7 @@ testing = ["pytest", "pytest-benchmark"]
 name = "pre-commit"
 version = "2.20.0"
 description = "A framework for managing and maintaining multi-language pre-commit hooks."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -1994,7 +2017,7 @@ diagrams = ["jinja2", "railroad-diagrams"]
 name = "pyrate-limiter"
 version = "2.8.3"
 description = "Python Rate-Limiter using Leaky-Bucket Algorithm"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 
@@ -2099,7 +2122,7 @@ watchdog = ">=2.0.0"
 name = "python-box"
 version = "6.0.2"
 description = "Advanced Python dictionaries with dot notation access"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -2115,7 +2138,7 @@ yaml = ["ruamel.yaml (>=0.17)"]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
@@ -2140,7 +2163,7 @@ test = ["coverage", "pycodestyle", "pyflakes", "pylint", "pytest", "pytest-cov"]
 name = "pytz"
 version = "2022.5"
 description = "World timezone definitions, modern and historical"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -2205,7 +2228,7 @@ mando = ">=0.6,<0.7"
 name = "requests"
 version = "2.28.1"
 description = "Python HTTP for Humans."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7, <4"
 
@@ -2391,7 +2414,7 @@ test = ["pylint", "pytest", "pytest-black", "pytest-cov", "pytest-pylint"]
 name = "sty"
 version = "1.0.4"
 description = "String styling for your terminal"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -2399,7 +2422,7 @@ python-versions = "*"
 name = "tabulate"
 version = "0.9.0"
 description = "Pretty-print tabular data"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 
@@ -2478,7 +2501,7 @@ telegram = ["requests"]
 name = "transitions"
 version = "0.9.0"
 description = "A lightweight, object-oriented Python state machine implementation with many extensions."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -2602,7 +2625,7 @@ python-versions = "*"
 name = "urllib3"
 version = "1.26.12"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
@@ -2615,7 +2638,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 name = "virtualenv"
 version = "20.16.5"
 description = "Virtual Python Environment builder"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -2673,7 +2696,7 @@ python-versions = "*"
 name = "win32-setctime"
 version = "1.1.0"
 description = "A small Python utility to set file creation time on Windows"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -2729,7 +2752,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10.5"
-content-hash = "d12b6022a0d74f2b93b306a0c79a93ea10bbc2c2595c210989647739af213941"
+content-hash = "6e934678686628c37214c1e11e08ccd96c37ccf3b433c90f1181818982bd1f33"
 
 [metadata.files]
 absolufy-imports = [
@@ -2961,8 +2984,8 @@ diff-cover = [
     {file = "diff_cover-7.0.1.tar.gz", hash = "sha256:69258355daf8276057a92e42cec52594ad8cfe7dd505d6f0e56fe440bc4418d0"},
 ]
 dill = [
-    {file = "dill-0.3.5.1-py2.py3-none-any.whl", hash = "sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302"},
-    {file = "dill-0.3.5.1.tar.gz", hash = "sha256:d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86"},
+    {file = "dill-0.3.6-py3-none-any.whl", hash = "sha256:a07ffd2351b8c678dfc4a856a3005f8067aea51d6ba6c700796a4d9e280f39f0"},
+    {file = "dill-0.3.6.tar.gz", hash = "sha256:e5db55f3687856d8fbdab002ed78544e1c4559a130302693d839dfe8f93f2373"},
 ]
 distlib = [
     {file = "distlib-0.3.6-py2.py3-none-any.whl", hash = "sha256:f35c4b692542ca110de7ef0bea44d73981caeb34ca0b9b6b2e6d7790dda8f80e"},
@@ -3135,6 +3158,9 @@ flake8-string-format = [
     {file = "flake8-string-format-0.3.0.tar.gz", hash = "sha256:65f3da786a1461ef77fca3780b314edb2853c377f2e35069723348c8917deaa2"},
     {file = "flake8_string_format-0.3.0-py2.py3-none-any.whl", hash = "sha256:812ff431f10576a74c89be4e85b8e075a705be39bc40c4b4278b5b13e2afa9af"},
 ]
+flake8-super = [
+    {file = "flake8_super-0.1.3-py3-none-any.whl", hash = "sha256:595cd65af908574867accfaa3ea2b3e4790637711859306550dc433d9105cbba"},
+]
 flake8-tuple = [
     {file = "flake8_tuple-0.4.1-py2.py3-none-any.whl", hash = "sha256:d828cc8e461c50cacca116e9abb0c9e3be565e8451d3f5c00578c63670aae680"},
     {file = "flake8_tuple-0.4.1.tar.gz", hash = "sha256:8a1b42aab134ef4c3fef13c6a8f383363f158b19fbc165bd91aed9c51851a61d"},
@@ -3142,6 +3168,10 @@ flake8-tuple = [
 flake8-typing-imports = [
     {file = "flake8_typing_imports-1.13.0-py2.py3-none-any.whl", hash = "sha256:21e4d5bd0bf684d78363d35edf9859719f6620bfe30f24ed5a7afbc8745638cd"},
     {file = "flake8_typing_imports-1.13.0.tar.gz", hash = "sha256:2078abc42d0c11ca50c2ed4c77198b844da8f7fd3901aef7e791e519c4be0c54"},
+]
+flake8-use-pathlib = [
+    {file = "flake8-use-pathlib-0.3.0.tar.gz", hash = "sha256:0ef19f255a51601bcf04ff54f25ef8a466dff68210cd95b4f1db36a78ace5223"},
+    {file = "flake8_use_pathlib-0.3.0-py3-none-any.whl", hash = "sha256:c7b6d71575b575f7d70ebf3f1d7f2dd6685e401d3280208f1db9dbb6bfa32608"},
 ]
 flake8-variables-names = [
     {file = "flake8_variables_names-0.0.5-py3-none-any.whl", hash = "sha256:e3277031696bbe10b5132b49938cde1d70fcae9561533b7bd7ab8e69cb27addb"},
