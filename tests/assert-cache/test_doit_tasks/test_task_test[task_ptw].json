@@ -2,7 +2,7 @@
   "_info": [
     {
       "func_args": {
-        "task": "<function ptw_task(..)>"
+        "task": "<function task_ptw(..)>"
       },
       "test_file": "test_doit_tasks.py",
       "test_name": "test_task_test"

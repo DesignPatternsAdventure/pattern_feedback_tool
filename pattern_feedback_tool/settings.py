@@ -25,6 +25,12 @@ class _Settings(BaseSettings):
         prefix = 'PFT_'
 
     @beartype
+    def next_task(self) -> None:
+        # TODO: Call self.persist() and update the ACTIVE_TASK & COMPLETED_TASKS
+        # TODO: Generate the task directory based on existing user code, the new skeleton code, and README
+        raise NotImplementedError('Sorry, but there is no Task2 yet')
+
+    @beartype
     def persist(self) -> None:
         self.USER_CONFIG.write_text(tomlkit.dumps(self.dict()))
 
