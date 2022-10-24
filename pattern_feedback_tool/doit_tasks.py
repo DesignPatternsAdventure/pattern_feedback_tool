@@ -14,7 +14,8 @@ from .settings import SETTINGS
 
 @beartype
 def resolve_task_dir() -> Path:
-    return (SETTINGS.PROJ_DIR / 'rpg/tasks' / SETTINGS.ACTIVE_TASK).relative_to(Path.cwd())
+    # FIXME: Need to move tasks into sub-directories
+    return Path('src/tasks')  # / SETTINGS.ACTIVE_TASK
 
 # ================== Core Interaction Tasks ==================
 
@@ -74,7 +75,7 @@ def task_test() -> DoitTask:
 
     """
     return debug_task([
-        Interactive(f'poetry run pytest "{resolve_task_dir()}/tests" {SETTINGS.ARGS_PYTEST}'),
+        Interactive(f'poetry run pytest tests {SETTINGS.ARGS_PYTEST}'),
     ])
 
 
@@ -120,7 +121,7 @@ def _lint_python() -> list[DoitAction]:
     flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
     pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
 
-    package = 'rpg'  # FIXME: Need to filter for only the task directory
+    package = 'src'  # FIXME: Need to filter for only the task directory
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
@@ -153,7 +154,7 @@ def task_build_diagrams() -> DoitTask:
         DoitTask: doit task
 
     """
-    package = 'rpg'  # FIXME: Need to filter for only relevant classes to task
+    package = 'src'  # FIXME: Need to filter for only relevant classes to task
     diagrams_dir = resolve_task_dir() / 'diagrams'
     return debug_task([
         f'poetry run pyreverse {package} --output svg --output-directory={diagrams_dir}',

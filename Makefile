@@ -1,5 +1,5 @@
 # Configuration Settings
-GIT_COMMIT := 6b95fcaf2270f0a2dbf8e6a969585a9f20ace4cb
+GIT_COMMIT := a657cb47bf6aa6d00e79891e9e579aec7aa6460e
 
 I_TEST_DIR := integration_tests
 C1_LOG := c1_pylint.log
@@ -19,7 +19,9 @@ clean:  # Remove the local copy of the integration test code
 reset: clean  # Reset the test code used for integration testing
 	@echo "\nCloning test code for commit=$(GIT_COMMIT)"
 	@gh repo clone DesignPatternsAdventure/community-rpg $(I_TEST_DIR)
-	@cd $(I_TEST_DIR) && git reset --hard $(GIT_COMMIT) && poetry install && poetry run pip install ../../pattern_feedback_tool
+	@cd $(I_TEST_DIR) && git reset --hard $(GIT_COMMIT)
+	@cd $(I_TEST_DIR) && sed -i '' -e '$ d' pyproject.toml
+	@cd $(I_TEST_DIR) && poetry add ../../pattern_feedback_tool && poetry install --sync
 
 .PHONY: _run
 _run: $(if $(wildcard $(I_TEST_DIR)), , reset)
@@ -34,7 +36,7 @@ update:  # Sync with latest feedback tool code
 .PHONY: check1
 check1: _run  # pylint (one-off testing)
 	@echo "\nRunning $@"
-	@cd $(I_TEST_DIR) && poetry run pylint rpg --rcfile=.pylintrc --output-format=json --output=$(C1_LOG) --exit-zero
+	@cd $(I_TEST_DIR) && poetry run pylint src --rcfile=.pylintrc --output-format=json --output=$(C1_LOG) --exit-zero
 	@($(CAT) $(I_TEST_DIR)/$(C1_LOG) | $(JQ) 'map(.symbol) | unique') >$(I_TEST_DIR)/$(C1_LOG).json
 	@$(CAT) $(I_TEST_DIR)/$(C1_LOG).json
 
@@ -47,7 +49,7 @@ check2: _run  # pyreverse
 check3: _run  # flake8 (one-off testing)
 	@echo "\nRunning $@"
 	@$(RM) $(I_TEST_DIR)/$(C3_LOG)
-	cd $(I_TEST_DIR) && poetry run flake8 rpg --config=.flake8 --output-file=$(C3_LOG) --exit-zero
+	cd $(I_TEST_DIR) && poetry run flake8 src --config=.flake8 --output-file=$(C3_LOG) --exit-zero
 	$(CAT) $(I_TEST_DIR)/$(C3_LOG)
 
 .PHONY: check_doit
@@ -56,7 +58,7 @@ check_doit: _run  # combined pytest, pylint, and flake8 (but will not run build_
 	cd $(I_TEST_DIR) && poetry run doit
 
 .PHONY: run
-run: _run check1 check2 check3  # Run the integration tests
+run: _run check1 check2 check3 check_doit  # Run the integration tests
 
 # -----------------------------------------------------------------------------------------------------------------
 # -----------------------       (Makefile helpers and decoration)      --------------------------------------------
