@@ -156,8 +156,9 @@ def task_build_diagrams() -> DoitTask:
     """
     package = 'src'  # FIXME: Need to filter for only relevant classes to task
     diagrams_dir = resolve_task_dir() / 'diagrams'
+    diagrams_dir.mkdir(exist_ok=True)
     return debug_task([
-        f'poetry run pyreverse {package} --output svg --output-directory={diagrams_dir}',
+        f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir}',
     ])
 
 
@@ -195,6 +196,7 @@ TASKS_PTW = [
     'format',
     'test',
     'check',
+    'build_diagrams',
 ]
 """Full suite of tasks for local development."""
 
