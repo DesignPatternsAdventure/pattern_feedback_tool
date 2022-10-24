@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "poetry run pyreverse rpg --output svg --output-directory=/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/task_1/diagrams"
+      "poetry run pyreverse rpg --output svg --output-directory=rpg/tasks/task_1/diagrams"
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2

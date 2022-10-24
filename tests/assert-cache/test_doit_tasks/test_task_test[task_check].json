@@ -16,7 +16,7 @@
           "--/.pft_flake8.log"
         ]
       ],
-      "Cmd: poetry run flake8 /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/task_1 --config=.flake8 --output-file=/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_flake8.log --exit-zero",
+      "Cmd: poetry run flake8 rpg/tasks/task_1 --config=.flake8 --output-file=/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_flake8.log --exit-zero",
       [
         "<function if_found_unlink(..)>",
         [

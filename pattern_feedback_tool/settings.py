@@ -9,7 +9,7 @@ from pydantic import BaseSettings, Field
 
 class _Settings(BaseSettings):
 
-    CWD: Path = Field(default_factory=lambda: Path.cwd())
+    PROJ_DIR: Path = Field(default_factory=lambda: Path.cwd())
     USER_CONFIG: Path = Field(default_factory=lambda: Path.cwd() / '.pft_config.toml')
 
     ACTIVE_TASK: str = 'task_1'

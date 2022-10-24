@@ -14,7 +14,7 @@ from .settings import SETTINGS
 
 @beartype
 def resolve_task_dir() -> Path:
-    return SETTINGS.CWD / SETTINGS.ACTIVE_TASK
+    return (SETTINGS.PROJ_DIR / 'rpg/tasks' / SETTINGS.ACTIVE_TASK).relative_to(Path.cwd())
 
 # ================== Core Interaction Tasks ==================
 
@@ -117,8 +117,8 @@ def _lint_python() -> list[DoitAction]:
         list[DoitAction]: doit task
 
     """
-    flake8_log_path = SETTINGS.CWD / '.pft_flake8.log'
-    pylint_log_path = SETTINGS.CWD / '.pft_pylint.json'
+    flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
+    pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
 
     package = 'rpg'  # FIXME: Need to filter for only the task directory
     return [
@@ -199,9 +199,7 @@ TASKS_PTW = [
 
 DOIT_CONFIG = {
     'action_string_formatting': 'old',  # Required for keyword-based tasks
-    'backend': 'sqlite3',  # Best support for concurrency
     'default_tasks': TASKS_PTW,
-    'dep_file': '.doit-db.sqlite',
     'reporter': SummaryReporter,
 }
 """doit Configuration Settings. Run with `poetry run doit`."""

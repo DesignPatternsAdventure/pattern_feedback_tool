@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run mypy /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/task_1 "
+      "Cmd: poetry run mypy rpg/tasks/task_1 "
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2

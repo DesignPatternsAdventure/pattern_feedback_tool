@@ -11,7 +11,7 @@
   "_json": {
     "actions": [
       [
-        "<bound method _Settings.next_task of _Settings(CWD=PosixPath('/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool'), USER_CONFIG=PosixPath('/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_config.toml'), ACTIVE_TASK='task_1', COMPLETED_TASKS=[], ARGS_PYTEST='', ARGS_PYLINT='', ARGS_FLAKE8='', ARGS_MYPY='')>",
+        "<bound method _Settings.next_task of _Settings(PROJ_DIR=PosixPath('/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool'), USER_CONFIG=PosixPath('/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_config.toml'), ACTIVE_TASK='task_1', COMPLETED_TASKS=[], ARGS_PYTEST='', ARGS_PYLINT='', ARGS_FLAKE8='', ARGS_MYPY='')>",
         []
       ]
     ],
