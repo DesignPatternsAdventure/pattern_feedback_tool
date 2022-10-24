@@ -165,7 +165,7 @@ def task_build_diagrams() -> DoitTask:
 
 
 @beartype
-def task_ptw() -> DoitTask:
+def task_watch_changes() -> DoitTask:
     """Re-run tests on changes with pytest watcher.
 
     Returns:

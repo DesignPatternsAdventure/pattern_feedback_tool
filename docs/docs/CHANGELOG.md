@@ -7,6 +7,11 @@
 - add script to generate integration tests
 - initialize with copier
 
+### Fix
+
+- update paths for changes in community-rpg
+- only use relative path
+
 ### Refactor
 
 - begin replacing custom code with makefile stand-in

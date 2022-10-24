@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run pytest \"rpg/tasks/task_1/tests\" "
+      "Cmd: poetry run pytest tests "
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2

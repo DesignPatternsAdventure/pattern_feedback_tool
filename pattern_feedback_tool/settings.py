@@ -37,7 +37,7 @@ class _Settings(BaseSettings):
 
 @beartype
 def _merge_saved_settings(settings: _Settings) -> _Settings:
-    user_settings = {}
+    user_settings = {}  # type: ignore [var-annotated]
     if settings.USER_CONFIG.is_file():
         user_settings = tomlkit.loads(settings.USER_CONFIG.read_text())
     kwargs = settings.dict() | user_settings

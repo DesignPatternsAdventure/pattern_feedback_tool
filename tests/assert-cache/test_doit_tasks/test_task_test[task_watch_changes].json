@@ -2,7 +2,7 @@
   "_info": [
     {
       "func_args": {
-        "task": "<function task_ptw(..)>"
+        "task": "<function task_watch_changes(..)>"
       },
       "test_file": "test_doit_tasks.py",
       "test_name": "test_task_test"
@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run ptw \"rpg/tasks/task_1\" "
+      "Cmd: poetry run ptw \"src/tasks\" "
     ],
     "verbosity": 2
   }
