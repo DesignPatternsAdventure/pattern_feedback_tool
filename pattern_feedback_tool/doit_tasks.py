@@ -1,5 +1,6 @@
 """DoIt tasks."""
 
+from functools import partial
 from pathlib import Path
 
 from beartype import beartype
@@ -8,7 +9,7 @@ from calcipy.doit_tasks.doit_globals import DoitAction, DoitTask
 from calcipy.doit_tasks.summary_reporter import SummaryReporter
 from calcipy.file_helpers import if_found_unlink
 from doit.tools import Interactive
-from rich import Console
+from rich.console import Console
 
 from .settings import SETTINGS
 
@@ -157,13 +158,13 @@ def task_build_diagrams() -> DoitTask:
     """
     package = 'src'  # FIXME: Need to filter for only relevant classes to task
     diagrams_dir = resolve_task_dir() / 'diagrams'
-    diagrams_dir.mkdir(exist_ok=True)
 
-    def log_pyreverse_file_locations():
+    def log_pyreverse_file_locations() -> None:
         console = Console()
         console.print(f'Created code diagrams in {diagrams_dir}')
 
     return debug_task([
+        (partial(diagrams_dir.mkdir, exist_ok=True), ()),
         f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir}',
         (log_pyreverse_file_locations, ()),
     ])
