@@ -1,0 +1,90 @@
+@startuml
+skinparam linetype ortho
+skinparam shadowing false
+' skinparam monochrome true
+
+' skinparam ranksep 20
+' skinparam dpi 150
+' skinparam arrowThickness 0.7
+' skinparam packageTitleAlignment left
+' skinparam usecaseBorderThickness 0.4
+' skinparam defaultFontSize 12
+' skinparam rectangleBorderThickness 1
+
+' How should this work? Basically just Flask-SQLAlchemy?
+class PersistenceInterface {
+  + load()
+  + save()
+}
+
+' Is this the SQLAlchemy model?
+class ModelInterface {
+  + TBD
+}
+
+
+class Settings {
+  + TBD_DB_URL
+}
+
+
+class Patron {
+  - name : String
+  - address : String
+  - phoneNumber : String
+  - libraryCardNumber : String
+  - birthDate : Date
+  - /age : Integer
+  + itemsCheckedOut() : Integer
+  + whenDue(Title) : Date
+  + outstandingOverDueFines() : Money
+  + checkOut(Title)
+  + request(Title)
+}
+class CheckedOut {
+  - hasBeenRenewed : Boolean = false
+  - dueDate : Date
+  - /fine : Money
+  - whenReturned : Date = 0
+}
+class Title {
+  - name : String
+  - author : String
+  - ISBN : String
+}
+
+' NOTE: I think this should be "1" Patron per any number of titles, not "*-*"
+Patron "1" -down- "0..*" Title : requests
+Patron "1" - "0..*" LoanableItem
+(Patron, LoanableItem) . CheckedOut
+
+class Item
+Item "*" -down-o "1" Title
+
+together {
+  class NonLoanableItem implements Item
+  class ReferenceBook implements NonLoanableItem
+  class Magazine implements NonLoanableItem
+}
+
+together {
+    class LoanableItem implements Item {
+        - perDayFine : Money = 0.10
+        - checkoutPeriod : Date
+        - value : Money
+    }
+    class Book implements LoanableItem {
+        - bestSeller : Boolean
+    }
+    class AudioVideoMaterial implements LoanableItem
+}
+
+together {
+  object Money <<Utility>>
+  object Date <<Utility>>
+  object OperatingSystem <<Utility>> {
+      getDate() : Date
+  }
+}
+
+@enduml
