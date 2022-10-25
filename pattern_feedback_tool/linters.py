@@ -55,18 +55,3 @@ def run_radon(
         show_complexity=True,
     )
     return harvester([arg_path.as_posix()], config).as_md()
-
-
-# ---------------- Planned: Flake8 (run with pytest) ----------------
-
-# ---------------- Planned: pylint (run with pytest) ----------------
-
-
-@beartype
-def run_pylint() -> None:
-    """Run pylint to find linting errors."""
-    # See: https://github.com/PyCQA/pylint/blob/7088409227e826ed8720886252fe05265daa9045/pylint/__init__.py#L27-L37
-    raise NotImplementedError('pylint should probably be called from shell')
-
-
-# ---------------- Planned: mypy (run with pytest) ----------------

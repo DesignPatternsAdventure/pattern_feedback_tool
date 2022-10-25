@@ -1,0 +1,18 @@
+{
+  "_info": [
+    {
+      "func_args": {
+        "task": "<function task_build_diagrams(..)>"
+      },
+      "test_file": "test_doit_tasks.py",
+      "test_name": "test_task_test"
+    }
+  ],
+  "_json": {
+    "actions": [
+      "poetry run pyreverse src --output svg --output-directory=src/tasks/diagrams"
+    ],
+    "title": "<function _show_cmd(..)>",
+    "verbosity": 2
+  }
+}
