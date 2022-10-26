@@ -17,7 +17,7 @@
       "message": "imported but unused",
       "message_id": "F401",
       "obj": ".task1.SpriteGenerator",
-      "symbol": null
+      "source": "flake8"
     },
     {
       "column": "1",
@@ -29,7 +29,7 @@
       "message": "Found commented out code",
       "message_id": "E800",
       "obj": null,
-      "symbol": null
+      "source": "flake8"
     }
   ]
 }

@@ -17,7 +17,7 @@
       "message": "Too many ancestors (6/3)",
       "message_id": "R0901",
       "obj": "MyWindow",
-      "symbol": "too-many-ancestors"
+      "source": "pylint"
     },
     {
       "column": "8",
@@ -29,7 +29,7 @@
       "message": "Unnecessary pass statement",
       "message_id": "W0107",
       "obj": "SpriteGenerator.__init__",
-      "symbol": "unnecessary-pass"
+      "source": "pylint"
     }
   ]
 }
