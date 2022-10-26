@@ -97,7 +97,7 @@ def display_lint_logs(console: Console, logs: list[LintLog]) -> None:
             link = f'{log.file_path}:{log.line}:{log.column}'
             table.add_row(
                 log.source.value,
-                f'[link={link}]{link}[/]',
+                f'[link={link}]{link}[/link]',
                 log.message_id,
                 f'{log.message} ({log.obj})' if log.obj else log.message,
             )
