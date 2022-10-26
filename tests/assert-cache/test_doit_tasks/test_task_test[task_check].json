@@ -16,7 +16,7 @@
           "--/.pft_flake8.log"
         ]
       ],
-      "Cmd: poetry run flake8 src/tasks --config=.flake8 --output-file=/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_flake8.log --exit-zero",
+      "Cmd: poetry run flake8 src/tasks --config=.flake8 --output-file=/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_flake8.log --color=never --exit-zero",
       [
         "<function if_found_unlink(..)>",
         [
@@ -25,7 +25,7 @@
       ],
       "Cmd: poetry run pylint src --rcfile=.pylintrc --output-format=json --output=/Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.pft_pylint.json --exit-zero",
       [
-        "<function _merge_linting_errors(..)>",
+        "<function _merge_linting_logs(..)>",
         [
           "--/.pft_flake8.log",
           "--/.pft_pylint.json"

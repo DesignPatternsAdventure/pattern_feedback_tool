@@ -11,6 +11,7 @@ from calcipy.file_helpers import if_found_unlink
 from doit.tools import Interactive
 from rich.console import Console
 
+from .lint_parsers import display_lint_logs, parse_flake8_logs, parse_pylint_json_logs
 from .settings import SETTINGS
 
 
@@ -82,7 +83,7 @@ def task_test() -> DoitTask:
 
 
 @beartype
-def _merge_linting_errors(flake8_log_path: Path, pylint_log_path: Path) -> None:  # noqa: CCR001
+def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> None:  # noqa: CCR001
     """Merge pylint and flake8 linting errors for a combined report.
 
     Args:
@@ -96,9 +97,11 @@ def _merge_linting_errors(flake8_log_path: Path, pylint_log_path: Path) -> None:
     flake8_logs = flake8_log_path.read_text().strip()
     pylint_logs = pylint_log_path.read_text().strip()
     if flake8_logs or pylint_logs:
-        # FIXME: Print with rich instead?
-        review_info = f'{flake8_logs}\n\n{pylint_logs}'.strip()
-        raise RuntimeError(f'Found Linting Errors:\n{review_info}')
+        console = Console
+        flake8_parsed = parse_flake8_logs(flake8_logs)
+        pylint_parsed = parse_pylint_json_logs(pylint_logs)
+        console = Console()
+        display_lint_logs(console, flake8_parsed + pylint_parsed)
 
     if_found_unlink(flake8_log_path)
     if_found_unlink(pylint_log_path)
@@ -111,7 +114,7 @@ def _lint_python() -> list[DoitAction]:
     Args:
         lint_paths: list of file and directory paths to lint
         path_flake8: path to flake8 configuration file
-        ignore_errors: list of error codes to ignore (beyond the flake8 config settings). Default is to ignore Code Tags
+        ignore_logs: list of error codes to ignore (beyond the flake8 config settings). Default is to ignore Code Tags
         xenon_args: string arguments passed to xenon. Default is for most strict options available
         diff_fail_under: integer minimum test coverage. Default is 80
         diff_branch: string branch to compare against. Default is `origin/main`
@@ -127,13 +130,13 @@ def _lint_python() -> list[DoitAction]:
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
-            f'poetry run flake8 {resolve_task_dir()} --config=.flake8 --output-file={flake8_log_path} --exit-zero',
+            f'poetry run flake8 {resolve_task_dir()} --config=.flake8 --output-file={flake8_log_path} --color=never --exit-zero',
         ),
         (if_found_unlink, (pylint_log_path,)),
         Interactive(
             f'poetry run pylint {package} --rcfile=.pylintrc --output-format=json --output={pylint_log_path} --exit-zero',
         ),
-        (_merge_linting_errors, (flake8_log_path, pylint_log_path)),
+        (_merge_linting_logs, (flake8_log_path, pylint_log_path)),
     ]
 
 
