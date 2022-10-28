@@ -57,7 +57,7 @@ def task_format() -> DoitTask:
         DoitTask: doit task
 
     """
-    task_dir = SETTINGS.task_dir()
+    task_dir = SETTINGS.task_dir().as_posix()
     return debug_task([
         Interactive(f'poetry run black "{task_dir}"'),
         Interactive(f'poetry run isort "{task_dir}"'),
@@ -117,18 +117,18 @@ def _lint_python() -> list[DoitAction]:
         list[DoitAction]: doit task
 
     """
-    task_dir = SETTINGS.task_dir()
+    task_dir = SETTINGS.task_dir().as_posix()
     flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
     pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
 
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
-            f'poetry run flake8 {task_dir} --config=.flake8 --output-file={flake8_log_path} --color=never --exit-zero',
+            f'poetry run flake8 {task_dir} --config=.flake8 --output-file={flake8_log_path.as_posix()} --color=never --exit-zero',
         ),
         (if_found_unlink, (pylint_log_path,)),
         Interactive(
-            f'poetry run pylint {task_dir} --rcfile=.pylintrc --output-format=json --output={pylint_log_path} --exit-zero',
+            f'poetry run pylint {task_dir} --rcfile=.pylintrc --output-format=json --output={pylint_log_path.as_posix()} --exit-zero',
         ),
         (_merge_linting_logs, (flake8_log_path, pylint_log_path)),
     ]
@@ -163,7 +163,7 @@ def task_build_diagrams() -> DoitTask:
 
     return debug_task([
         (partial(diagrams_dir.mkdir, exist_ok=True), ()),
-        f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir}',
+        f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
         (log_pyreverse_file_locations, ()),
     ])
 
@@ -179,7 +179,7 @@ def task_watch_changes() -> DoitTask:
         DoitTask: doit task
 
     """
-    task_dir = SETTINGS.task_dir()
+    task_dir = SETTINGS.task_dir().as_posix()
     return {
         'actions': [Interactive(f'poetry run ptw "{task_dir}" {SETTINGS.ARGS_PYTEST}')],
         'verbosity': 2,
@@ -194,7 +194,7 @@ def task_check_types() -> DoitTask:
         DoitTask: doit task
 
     """
-    task_dir = SETTINGS.task_dir()
+    task_dir = SETTINGS.task_dir().as_posix()
     return debug_task([
         Interactive(f'poetry run mypy {task_dir} {SETTINGS.ARGS_MYPY}'),
     ])
