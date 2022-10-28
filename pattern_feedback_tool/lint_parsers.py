@@ -77,6 +77,7 @@ def parse_flake8_logs(flake8_logs: str) -> list[LintLog]:
     return logs
 
 
+# PLANNED: Move to a file that handles console output?
 @beartype
 def display_lint_logs(console: Console, logs: list[LintLog]) -> None:
     """Use rich to display an easily readable output from found LintLogs."""
@@ -94,9 +95,11 @@ def display_lint_logs(console: Console, logs: list[LintLog]) -> None:
     for pth in sorted(grouped_logs):
         for log in grouped_logs[pth]:
             link = f'{log.file_path}:{log.line}:{log.column}'
+            # Follows: https://gist.github.com/egmontkob/eb114294efbcd5adb1944c9f3cb5feda#file-uris-and-the-hostname
+            file_uri = f'file:/{(Path.cwd() / link).as_posix()}'
             table.add_row(
                 log.source.value,
-                f'[link={Path.cwd() / link}]{link}[/link]',
+                f'[link={file_uri}]{link}[/link]',
                 f'[magenta]{log.message_id}[/]',
                 f'{log.message} ({log.obj})' if log.obj else log.message,
             )
