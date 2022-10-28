@@ -103,6 +103,5 @@ pytest = ">=7.1.2"
 pytest-watcher = ">=0.2.3"
 
 [tool.poetry.group.dev.dependencies]
-beautifulsoup4 = ">=4.11.1"
 calcipy = { version = "*", extras = ["dev", "lint", "test"] }
 pytest-cache-assert = ">=3.0.5"
