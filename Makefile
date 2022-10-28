@@ -1,5 +1,5 @@
 # Configuration Settings
-GIT_COMMIT := 654cb248f0594c22cd38caaded2a258d6215e400
+GIT_COMMIT := head
 
 I_TEST_DIR := integration_tests
 C1_LOG := c1_pylint.log
