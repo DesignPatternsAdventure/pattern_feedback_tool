@@ -32,7 +32,8 @@ class LintLog(BaseModel):
     obj: str | None = None
 
     @classmethod
-    def from_pylint(cls, pylint_data: dict) -> 'LintLog':  # type: ignore [type-arg]
+    @beartype
+    def from_pylint(cls, pylint_data: dict[str, str | int | None]) -> 'LintLog':
         """Dropped keys: module, symbol."""
         keys = ['obj', 'line', 'column', 'message']
         return cls(
