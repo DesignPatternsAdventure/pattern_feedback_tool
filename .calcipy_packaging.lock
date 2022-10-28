@@ -80,12 +80,12 @@
         "version": "1.7.7"
     },
     "autopep8": {
-        "datetime": "2022-08-09T12:55:25.914554+00:00",
+        "datetime": "2022-10-28T01:36:42.464580+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2022-08-09T12:55:25.914554+00:00",
-        "latest_version": "1.7.0",
+        "latest_datetime": "2022-10-28T01:36:42.464580+00:00",
+        "latest_version": "1.7.1",
         "name": "autopep8",
-        "version": "1.7.0"
+        "version": "1.7.1"
     },
     "babel": {
         "datetime": "2022-06-16T06:31:20.746156+00:00",
@@ -110,14 +110,6 @@
         "latest_version": "0.11.0",
         "name": "beartype",
         "version": "0.11.0"
-    },
-    "beautifulsoup4": {
-        "datetime": "2022-04-08T21:22:46.958595+00:00",
-        "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2022-04-08T21:22:46.958595+00:00",
-        "latest_version": "4.11.1",
-        "name": "beautifulsoup4",
-        "version": "4.11.1"
     },
     "better-exceptions": {
         "datetime": "2021-01-29T16:48:55.897166+00:00",
@@ -272,12 +264,12 @@
         "version": "6.7.0"
     },
     "commitizen": {
-        "datetime": "2022-09-23T09:48:49.169775+00:00",
+        "datetime": "2022-10-28T09:11:37.424885+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2022-09-23T09:48:49.169775+00:00",
-        "latest_version": "2.35.0",
+        "latest_datetime": "2022-10-28T09:11:37.424885+00:00",
+        "latest_version": "2.37.0",
         "name": "commitizen",
-        "version": "2.35.0"
+        "version": "2.37.0"
     },
     "commonmark": {
         "datetime": "2019-10-04T15:37:37.674968+00:00",
@@ -680,12 +672,12 @@
         "version": "3.3.1"
     },
     "flake8-return": {
-        "datetime": "2021-05-05T09:22:16.053801+00:00",
+        "datetime": "2022-10-28T09:37:14.468591+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2021-05-05T09:22:16.053801+00:00",
-        "latest_version": "1.1.3",
+        "latest_datetime": "2022-10-28T09:37:14.468591+00:00",
+        "latest_version": "1.2.0",
         "name": "flake8-return",
-        "version": "1.1.3"
+        "version": "1.2.0"
     },
     "flake8-simplify": {
         "datetime": "2022-07-28T16:32:34.948924+00:00",
@@ -1518,14 +1510,6 @@
         "latest_version": "2.2.0",
         "name": "snowballstemmer",
         "version": "2.2.0"
-    },
-    "soupsieve": {
-        "datetime": "2022-04-14T12:57:59.186531+00:00",
-        "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2022-04-14T12:57:59.186531+00:00",
-        "latest_version": "2.3.2.post1",
-        "name": "soupsieve",
-        "version": "2.3.2.post1"
     },
     "sqlparse": {
         "datetime": "2022-09-23T18:41:20.351878+00:00",

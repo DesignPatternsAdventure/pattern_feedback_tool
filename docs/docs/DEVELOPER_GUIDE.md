@@ -47,14 +47,15 @@ poetry run doit run lock document deploy_docs publish
 ## Current Status
 
 <!-- {cts} COVERAGE -->
-| File                                  |   Statements |   Missing |   Excluded | Coverage   |
-|---------------------------------------|--------------|-----------|------------|------------|
-| `pattern_feedback_tool/__init__.py`   |            5 |         0 |          0 | 100.0%     |
-| `pattern_feedback_tool/doit_tasks.py` |           63 |         9 |          0 | 85.7%      |
-| `pattern_feedback_tool/graphics.py`   |           15 |         0 |          0 | 100.0%     |
-| `pattern_feedback_tool/linters.py`    |           17 |         1 |          0 | 94.1%      |
-| `pattern_feedback_tool/settings.py`   |           30 |         3 |          0 | 90.0%      |
-| **Totals**                            |          130 |        13 |          0 | 90.0%      |
+| File                                    |   Statements |   Missing |   Excluded | Coverage   |
+|-----------------------------------------|--------------|-----------|------------|------------|
+| `pattern_feedback_tool/__init__.py`     |            5 |         0 |          0 | 100.0%     |
+| `pattern_feedback_tool/doit_tasks.py`   |           67 |        11 |          0 | 83.6%      |
+| `pattern_feedback_tool/graphics.py`     |           15 |         0 |          0 | 100.0%     |
+| `pattern_feedback_tool/lint_parsers.py` |           64 |         0 |          0 | 100.0%     |
+| `pattern_feedback_tool/linters.py`      |           17 |         1 |          0 | 94.1%      |
+| `pattern_feedback_tool/settings.py`     |           33 |         3 |          0 | 90.9%      |
+| **Totals**                              |          201 |        15 |          0 | 92.5%      |
 
-Generated on: 2022-10-25
+Generated on: 2022-10-28
 <!-- {cte} -->

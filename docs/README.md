@@ -4,23 +4,13 @@ Design Pattern Feedback Tool
 
 ## Installation
 
-1. `poetry add `
-
-1. ...
-
-   ```sh
-   import
-
-   # < TODO: Add example code here >
-   ```
-
-1. ...
+This package is built only for playing [the DesignPatternsAdventure game][dpa_game_link]
 
 ## Usage
 
-<!-- < TODO: Show an example (screenshots, terminal recording, etc.) > -->
+See [the README of the game][dpa_game_link], which utilizes `pft`'s `doit` tasks, such as `doit check` or `doit build_diagrams`.
 
-For more example code, see the [scripts] directory or the [tests].
+See [tests] for example code and output.
 
 ## Project Status
 
@@ -46,6 +36,7 @@ If you have any security issue to report, please contact the project maintainers
 
 [LICENSE]
 
+[dpa_game_link]: https://github.com/DesignPatternsAdventure/community-rpg
 [changelog]: ./docs/CHANGELOG.md
 [code_tag_summary]: ./docs/CODE_TAG_SUMMARY.md
 [contributing]: ./docs/CONTRIBUTING.md
