@@ -2,6 +2,7 @@
 
 import json
 from enum import Enum
+from pathlib import Path
 
 import pyparsing as pp
 from beartype import beartype
@@ -90,15 +91,13 @@ def display_lint_logs(console: Console, logs: list[LintLog]) -> None:
     for log in logs:
         grouped_logs[log.file_path].append(log)
 
-    # TODO: Style the message_ids based on severity!
-    for pth in sorted(grouped_logs):  # FIXME: This is sort-able inline!
+    for pth in sorted(grouped_logs):
         for log in grouped_logs[pth]:
-            # FIXME: Get the full path
             link = f'{log.file_path}:{log.line}:{log.column}'
             table.add_row(
                 log.source.value,
-                f'[link={link}]{link}[/link]',
-                log.message_id,
+                f'[link={Path.cwd() / link}]{link}[/link]',
+                f'[magenta]{log.message_id}[/]',
                 f'{log.message} ({log.obj})' if log.obj else log.message,
             )
 
