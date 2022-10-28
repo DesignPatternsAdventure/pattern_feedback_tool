@@ -17,8 +17,8 @@ from .settings import SETTINGS
 
 @beartype
 def resolve_task_dir() -> Path:
-    # FIXME: Need to move tasks into sub-directories
-    return Path('src/tasks')  # / SETTINGS.ACTIVE_TASK
+    # FIXME: Need to move tasks into sub-directories (`/ SETTINGS.ACTIVE_TASK`)
+    return Path('src/tasks')
 
 # ================== Core Interaction Tasks ==================
 
@@ -158,7 +158,7 @@ def task_build_diagrams() -> DoitTask:
         DoitTask: doit task
 
     """
-    package = 'src'  # FIXME: Need to filter for only relevant classes to task
+    package = resolve_task_dir().replace('/', '.')
     diagrams_dir = resolve_task_dir() / 'diagrams'
 
     def log_pyreverse_file_locations() -> None:
