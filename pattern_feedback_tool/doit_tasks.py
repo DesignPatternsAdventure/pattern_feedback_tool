@@ -97,7 +97,6 @@ def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> None:  
     flake8_logs = flake8_log_path.read_text().strip()
     pylint_logs = pylint_log_path.read_text().strip()
     if flake8_logs or pylint_logs:
-        console = Console
         flake8_parsed = parse_flake8_logs(flake8_logs)
         pylint_parsed = parse_pylint_json_logs(pylint_logs)
         console = Console()
@@ -123,8 +122,9 @@ def _lint_python() -> list[DoitAction]:
         list[DoitAction]: doit task
 
     """
-    flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
-    pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
+    proj_dir = SETTINGS.PROJ_DIR.relative_to(Path.cwd())
+    flake8_log_path = proj_dir / '.pft_flake8.log'
+    pylint_log_path = proj_dir / '.pft_pylint.json'
 
     return [
         (if_found_unlink, (flake8_log_path,)),
