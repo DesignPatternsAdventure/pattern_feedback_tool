@@ -41,7 +41,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://pattern_feedback_tool.kyleking.me/reference/SUMMARY/</loc>
+         <loc>None</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/doit_tasks/</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/graphics/</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/lint_parsers/</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/linters/</loc>
+         <lastmod>2022-10-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/settings/</loc>
          <lastmod>2022-10-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
