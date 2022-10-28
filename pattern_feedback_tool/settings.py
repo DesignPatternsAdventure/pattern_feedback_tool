@@ -9,8 +9,8 @@ from pydantic import BaseSettings, Field
 
 class _Settings(BaseSettings):
 
-    PROJ_DIR: Path = Field(default_factory=lambda: Path.cwd())
-    USER_CONFIG: Path = Field(default_factory=lambda: Path.cwd() / '.pft_config.toml')
+    PROJ_DIR: Path = Field(default_factory=lambda: Path('.'))
+    USER_CONFIG: Path = Field(default_factory=lambda: Path('.pft_config.toml'))
 
     ACTIVE_TASK: str = 'task_1'
     COMPLETED_TASKS: list[str] = Field(default_factory=list)
@@ -23,6 +23,10 @@ class _Settings(BaseSettings):
 
     class Config:
         prefix = 'PFT_'
+
+    @beartype
+    def task_dir(self) -> Path:
+        return self.PROJ_DIR / 'src/tasks'  # / self.ACTIVE_TASK` << FIXME: Use sub-directories
 
     @beartype
     def next_task(self) -> None:

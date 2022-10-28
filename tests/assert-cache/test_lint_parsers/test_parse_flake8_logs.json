@@ -1,0 +1,35 @@
+{
+  "_info": [
+    {
+      "func_args": {},
+      "test_file": "test_lint_parsers.py",
+      "test_name": "test_parse_flake8_logs"
+    }
+  ],
+  "_json": [
+    {
+      "column": "1",
+      "end_column": null,
+      "end_line": null,
+      "file_path": "src/tasks/__init__.py",
+      "kind": null,
+      "line": "3",
+      "message": "imported but unused",
+      "message_id": "F401",
+      "obj": ".task1.SpriteGenerator",
+      "source": "flake8"
+    },
+    {
+      "column": "1",
+      "end_column": null,
+      "end_line": null,
+      "file_path": "src/tasks/task1.py",
+      "kind": null,
+      "line": "61",
+      "message": "Found commented out code",
+      "message_id": "E800",
+      "obj": null,
+      "source": "flake8"
+    }
+  ]
+}

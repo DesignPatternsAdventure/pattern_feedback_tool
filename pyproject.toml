@@ -9,7 +9,7 @@ ignore_patterns = [
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.0.1"
+version = "0.1.0"
 version_files = ["pyproject.toml", "pattern_feedback_tool/__init__.py"]
 
 [tool.isort]
@@ -27,7 +27,7 @@ pythons = ["3.10"]
 
 [tool.poetry]
 name = "pattern_feedback_tool"
-version = "0.0.1"
+version = "0.1.0"
 description = "Design Pattern Feedback Tool"
 license = "MIT"
 authors = ["Kyle King <dev.act.kyle@gmail.com>"]
@@ -58,6 +58,7 @@ code2flow = ">=2.5.0"
 doit = ">=0.34.2"
 pycg = ">=0.0.6"
 pydantic = ">=1.8.1"
+pyparsing = ">=3.0.9"
 radon = ">=5.1.0"
 rich = ">=12.6.0"
 tomlkit = ">=0.11.5"
@@ -70,7 +71,6 @@ flake8-breakpoint = ">=1.1.0"
 flake8-broken-line = ">=0.4.0"
 flake8-bugbear = ">=22.4.25"
 flake8-builtins = ">=1.5.3"
-flake8-cognitive-complexity = ">=0.1.0"
 flake8-comprehensions = ">=3.10.0"
 flake8-debugger = ">=4.1.2"
 flake8-eradicate = ">=1.2.1"
@@ -103,6 +103,5 @@ pytest = ">=7.1.2"
 pytest-watcher = ">=0.2.3"
 
 [tool.poetry.group.dev.dependencies]
-beautifulsoup4 = ">=4.11.1"
 calcipy = { version = "*", extras = ["dev", "lint", "test"] }
 pytest-cache-assert = ">=3.0.5"

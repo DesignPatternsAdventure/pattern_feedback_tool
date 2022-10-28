@@ -1,0 +1,35 @@
+{
+  "_info": [
+    {
+      "func_args": {},
+      "test_file": "test_lint_parsers.py",
+      "test_name": "test_parse_pylint_json_logs"
+    }
+  ],
+  "_json": [
+    {
+      "column": "0",
+      "end_column": "14",
+      "end_line": "13",
+      "file_path": "src/__main__.py",
+      "kind": "refactor",
+      "line": "13",
+      "message": "Too many ancestors (6/3)",
+      "message_id": "R0901",
+      "obj": "MyWindow",
+      "source": "pylint"
+    },
+    {
+      "column": "8",
+      "end_column": "12",
+      "end_line": "35",
+      "file_path": "src/tasks/task1.py",
+      "kind": "warning",
+      "line": "35",
+      "message": "Unnecessary pass statement",
+      "message_id": "W0107",
+      "obj": "SpriteGenerator.__init__",
+      "source": "pylint"
+    }
+  ]
+}

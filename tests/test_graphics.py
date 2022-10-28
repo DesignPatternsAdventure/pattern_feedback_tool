@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+import json
 
 from pattern_feedback_tool.graphics import run_code2flow, run_pycg
 
@@ -6,18 +6,18 @@ from .configuration import SAMPLE_CODE_DIR
 
 
 def test_run_code2flow(assert_against_cache, fix_test_cache):
-    tmp_image_path = fix_test_cache / f'code2flow-{SAMPLE_CODE_DIR.stem}.svg'
+    # Specify a '.json' file so that graphviz isn't required
+    out_path = fix_test_cache / f'code2flow-{SAMPLE_CODE_DIR.stem}.json'
 
-    run_code2flow(SAMPLE_CODE_DIR, output_image=tmp_image_path)  # act
+    run_code2flow(SAMPLE_CODE_DIR, output_image=out_path)  # act
 
-    with open(tmp_image_path) as fp:
-        soup = BeautifulSoup(fp)
-    text_tags = sorted(_t.text for _t in soup.find_all('text'))
-    assert_against_cache(text_tags)
+    data = json.loads(out_path.read_text())
+    node_names = sorted([_v['name'] for _v in data['graph']['nodes'].values()])
+    assert_against_cache(node_names)
 
 
 def test_run_pycg(assert_against_cache):
     result = run_pycg(SAMPLE_CODE_DIR / 'game_view.py', package='rpg')
 
-    # TODO: This is just a deterministic way to log the call graph. Seems to change when re-run
+    # FYI: This is just a deterministic way to log the call graph. Seems to change when re-run
     assert_against_cache(sorted(result.keys()))
