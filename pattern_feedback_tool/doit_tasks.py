@@ -158,7 +158,7 @@ def task_build_diagrams() -> DoitTask:
         DoitTask: doit task
 
     """
-    package = resolve_task_dir().replace('/', '.')
+    package = resolve_task_dir().as_posix().replace('/', '.')
     diagrams_dir = resolve_task_dir() / 'diagrams'
 
     def log_pyreverse_file_locations() -> None:
