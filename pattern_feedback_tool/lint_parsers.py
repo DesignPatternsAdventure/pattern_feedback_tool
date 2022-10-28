@@ -33,24 +33,24 @@ class LintLog(BaseModel):
 
     @classmethod
     @beartype
-    def from_pylint(cls, pylint_data: dict[str, str | int | None]) -> 'LintLog':
+    def from_pylint(cls, **kwargs) -> 'LintLog':  # type: ignore [no-untyped-def]
         """Dropped keys: module, symbol."""
         keys = ['obj', 'line', 'column', 'message']
         return cls(
             source=Linter.PYLINT,
-            message_id=pylint_data['message-id'],
-            kind=pylint_data['type'],
-            file_path=pylint_data['path'],
-            end_line=pylint_data['endLine'],
-            end_column=pylint_data['endColumn'],
-            **{key: pylint_data[key] for key in keys},
+            message_id=kwargs['message-id'],
+            kind=kwargs['type'],
+            file_path=kwargs['path'],
+            end_line=kwargs['endLine'],
+            end_column=kwargs['endColumn'],
+            **{key: kwargs[key] for key in keys},
         )
 
 
 @beartype
 def parse_pylint_json_logs(pylint_logs: str) -> list[LintLog]:
     """Parse data from pylint json output."""
-    return [LintLog.from_pylint(item) for item in json.loads(pylint_logs)]
+    return [LintLog.from_pylint(**item) for item in json.loads(pylint_logs)]
 
 
 @beartype
