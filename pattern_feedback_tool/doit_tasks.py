@@ -126,7 +126,6 @@ def _lint_python() -> list[DoitAction]:
     flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
     pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
 
-    package = 'src'  # FIXME: Need to filter for only the task directory
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
@@ -134,7 +133,7 @@ def _lint_python() -> list[DoitAction]:
         ),
         (if_found_unlink, (pylint_log_path,)),
         Interactive(
-            f'poetry run pylint {package} --rcfile=.pylintrc --output-format=json --output={pylint_log_path} --exit-zero',
+            f'poetry run pylint {resolve_task_dir()} --rcfile=.pylintrc --output-format=json --output={pylint_log_path} --exit-zero',
         ),
         (_merge_linting_logs, (flake8_log_path, pylint_log_path)),
     ]
