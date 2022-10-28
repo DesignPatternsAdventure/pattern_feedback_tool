@@ -14,12 +14,6 @@ from rich.console import Console
 from .lint_parsers import display_lint_logs, parse_flake8_logs, parse_pylint_json_logs
 from .settings import SETTINGS
 
-
-@beartype
-def resolve_task_dir() -> Path:
-    # FIXME: Need to move tasks into sub-directories (`/ SETTINGS.ACTIVE_TASK`)
-    return Path('src/tasks')
-
 # ================== Core Interaction Tasks ==================
 
 
@@ -63,9 +57,10 @@ def task_format() -> DoitTask:
         DoitTask: doit task
 
     """
+    task_dir = SETTINGS.task_dir()
     return debug_task([
-        Interactive(f'poetry run black "{resolve_task_dir()}"'),
-        Interactive(f'poetry run isort "{resolve_task_dir()}"'),
+        Interactive(f'poetry run black "{task_dir}"'),
+        Interactive(f'poetry run isort "{task_dir}"'),
     ])
 
 
@@ -122,18 +117,18 @@ def _lint_python() -> list[DoitAction]:
         list[DoitAction]: doit task
 
     """
-    proj_dir = SETTINGS.PROJ_DIR.relative_to(Path.cwd())
-    flake8_log_path = proj_dir / '.pft_flake8.log'
-    pylint_log_path = proj_dir / '.pft_pylint.json'
+    task_dir = SETTINGS.task_dir()
+    flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
+    pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
 
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
-            f'poetry run flake8 {resolve_task_dir()} --config=.flake8 --output-file={flake8_log_path} --color=never --exit-zero',
+            f'poetry run flake8 {task_dir} --config=.flake8 --output-file={flake8_log_path} --color=never --exit-zero',
         ),
         (if_found_unlink, (pylint_log_path,)),
         Interactive(
-            f'poetry run pylint {resolve_task_dir()} --rcfile=.pylintrc --output-format=json --output={pylint_log_path} --exit-zero',
+            f'poetry run pylint {task_dir} --rcfile=.pylintrc --output-format=json --output={pylint_log_path} --exit-zero',
         ),
         (_merge_linting_logs, (flake8_log_path, pylint_log_path)),
     ]
@@ -158,8 +153,9 @@ def task_build_diagrams() -> DoitTask:
         DoitTask: doit task
 
     """
-    package = resolve_task_dir().as_posix().replace('/', '.')
-    diagrams_dir = resolve_task_dir() / 'diagrams'
+    task_dir = SETTINGS.task_dir()
+    package = task_dir.as_posix().replace('/', '.')
+    diagrams_dir = task_dir / 'diagrams'
 
     def log_pyreverse_file_locations() -> None:
         console = Console()
@@ -183,8 +179,9 @@ def task_watch_changes() -> DoitTask:
         DoitTask: doit task
 
     """
+    task_dir = SETTINGS.task_dir()
     return {
-        'actions': [Interactive(f'poetry run ptw "{resolve_task_dir()}" {SETTINGS.ARGS_PYTEST}')],
+        'actions': [Interactive(f'poetry run ptw "{task_dir}" {SETTINGS.ARGS_PYTEST}')],
         'verbosity': 2,
     }
 
@@ -197,8 +194,9 @@ def task_check_types() -> DoitTask:
         DoitTask: doit task
 
     """
+    task_dir = SETTINGS.task_dir()
     return debug_task([
-        Interactive(f'poetry run mypy {resolve_task_dir()} {SETTINGS.ARGS_MYPY}'),
+        Interactive(f'poetry run mypy {task_dir} {SETTINGS.ARGS_MYPY}'),
     ])
 
 
