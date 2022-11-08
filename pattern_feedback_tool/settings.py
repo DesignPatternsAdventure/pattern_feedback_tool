@@ -26,7 +26,7 @@ class _Settings(BaseSettings):
 
     @beartype
     def task_dir(self) -> Path:
-        return self.PROJ_DIR / 'src/tasks'  # / self.ACTIVE_TASK` << FIXME: Use sub-directories
+        return self.PROJ_DIR / 'game/tasks'  # / self.ACTIVE_TASK` << FIXME: Use sub-directories
 
     @beartype
     def next_task(self) -> None:

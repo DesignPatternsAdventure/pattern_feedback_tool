@@ -7,6 +7,9 @@ ignore_patterns = [
   "test-data/sample_code/*.py",
 ]
 
+[tool.calcipy.test]
+pythons = ["3.10"]
+
 [tool.commitizen]
 name = "cz_conventional_commits"
 version = "0.1.0"
@@ -21,9 +24,6 @@ known_first_party = "pattern_feedback_tool"
 length_sort = false
 line_length = 120
 multi_line_output = 5
-
-[tool.calcipy.test]
-pythons = ["3.10"]
 
 [tool.poetry]
 name = "pattern_feedback_tool"

@@ -7,6 +7,7 @@
 
 ### Fix
 
+- support 'game' instead of community-rpg
 - minor fixes to pass CI locally (#3)
 
 ### Refactor

@@ -26,7 +26,7 @@ def task_play() -> DoitTask:
 
     """
     return debug_task([
-        Interactive('poetry run python -m src'),
+        Interactive('poetry run python -m game.play'),
     ])
 
 

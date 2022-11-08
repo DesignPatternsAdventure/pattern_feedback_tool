@@ -10,8 +10,8 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run black \"src/tasks\"",
-      "Cmd: poetry run isort \"src/tasks\""
+      "Cmd: poetry run black \"game/tasks\"",
+      "Cmd: poetry run isort \"game/tasks\""
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2

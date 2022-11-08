@@ -36,13 +36,12 @@ If you have any security issue to report, please contact the project maintainers
 
 [LICENSE]
 
-[dpa_game_link]: https://github.com/DesignPatternsAdventure/community-rpg
 [changelog]: ./docs/CHANGELOG.md
 [code_tag_summary]: ./docs/CODE_TAG_SUMMARY.md
 [contributing]: ./docs/CONTRIBUTING.md
 [contributor-covenant]: https://www.contributor-covenant.org
 [developer_guide]: ./docs/DEVELOPER_GUIDE.md
+[dpa_game_link]: https://github.com/DesignPatternsAdventure/community-rpg
 [license]: https://github.com/DesignPatternsAdventure/pattern_feedback_tool/LICENSE
-[scripts]: https://github.com/DesignPatternsAdventure/pattern_feedback_tool/scripts
 [style_guide]: ./docs/STYLE_GUIDE.md
 [tests]: https://github.com/DesignPatternsAdventure/pattern_feedback_tool/tests

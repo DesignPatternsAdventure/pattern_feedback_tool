@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run ptw \"src/tasks\" "
+      "Cmd: poetry run ptw \"game/tasks\" "
     ],
     "verbosity": 2
   }

@@ -11,10 +11,10 @@
   "_json": {
     "actions": [
       [
-        "functools.partial(<bound method Path.mkdir of PosixPath('src/tasks/diagrams')>, exist_ok=True)",
+        "functools.partial(<bound method Path.mkdir of PosixPath('game/tasks/diagrams')>, exist_ok=True)",
         []
       ],
-      "poetry run pyreverse src.tasks --output png --output-directory=src/tasks/diagrams",
+      "poetry run pyreverse game.tasks --output png --output-directory=game/tasks/diagrams",
       [
         "<function task_build_diagrams.<locals>.log_pyreverse_file_locations(..)>",
         []

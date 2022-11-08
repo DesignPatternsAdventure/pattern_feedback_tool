@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run python -m src"
+      "Cmd: poetry run python -m game.play"
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2
