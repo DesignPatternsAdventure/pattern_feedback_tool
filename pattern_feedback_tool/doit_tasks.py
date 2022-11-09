@@ -50,11 +50,11 @@ def task_format_all() -> DoitTask:
     docfmt_args = '--blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120'
     return debug_task([
         f'{run_mod} black {paths}',
-        f'{run} pyupgrade {file_paths} --py310-plus --keep-runtime-typing',
+        f'{run} pyupgrade {file_paths} --py310-plus --keep-runtime-typing --exit-zero',
         f'{run_mod} unimport {paths} --include-star-import --remove',
-        f'{run} absolufy-imports {paths} --never',
+        f'{run} absolufy-imports {file_paths} --never',
         f'{run_mod} isort {paths}',
-        f'{run_mod} docformatter {paths} {docfmt_args}',
+        f'{run_mod} docformatter {file_paths} {docfmt_args}',
     ])
 
 
