@@ -8,12 +8,16 @@
       "test_name": "test_task_test"
     }
   ],
-  "_json": [
-    "poetry run python -m black tests game ./dodo.py",
-    "poetry run pyupgrade tests game ./dodo.py --py10-plus --keep-runtime-typing",
-    "poetry run python -m unimport tests game ./dodo.py --include-star-import --remove",
-    "poetry run absolufy-imports tests game ./dodo.py --never",
-    "poetry run python -m isort tests game ./dodo.py",
-    "poetry run python -m docformatter tests game ./dodo.py --blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120"
-  ]
+  "_json": {
+    "actions": [
+      "poetry run python -m black tests game ./dodo.py",
+      "poetry run pyupgrade tests game ./dodo.py --py10-plus --keep-runtime-typing",
+      "poetry run python -m unimport tests game ./dodo.py --include-star-import --remove",
+      "poetry run absolufy-imports tests game ./dodo.py --never",
+      "poetry run python -m isort tests game ./dodo.py",
+      "poetry run python -m docformatter tests game ./dodo.py --blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120"
+    ],
+    "title": "<function _show_cmd(..)>",
+    "verbosity": 2
+  }
 }

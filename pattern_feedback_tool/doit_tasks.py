@@ -34,25 +34,25 @@ def task_play() -> DoitTask:
 
 
 @beartype
-def task_format_all() -> list[DoitAction]:
+def task_format_all() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
-        list[DoitAction]: doit task
+        DoitTask: doit task
 
     """
     run = 'poetry run'
     run_mod = f'{run} python -m'
     paths = 'tests game ./dodo.py'
     docfmt_args = '--blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120'
-    return [
+    return debug_task([
         f'{run_mod} black {paths}',
         f'{run} pyupgrade {paths} --py10-plus --keep-runtime-typing',
         f'{run_mod} unimport {paths} --include-star-import --remove',
         f'{run} absolufy-imports {paths} --never',
         f'{run_mod} isort {paths}',
         f'{run_mod} docformatter {paths} {docfmt_args}',
-    ]
+    ])
 
 
 @beartype
