@@ -2,6 +2,12 @@
 
 ### Fix
 
+- undo requirement change from cl_bump
+
+## 0.2.2 (2022-11-09)
+
+### Fix
+
 - use file_paths for absolufy-imports and docformatter
 
 ## 0.2.1 (2022-11-09)
