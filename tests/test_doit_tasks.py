@@ -1,8 +1,8 @@
 import pytest
 
 from pattern_feedback_tool.doit_tasks import (
-    task_build_diagrams, task_check, task_check_types, task_format,
-    task_next_task, task_play, task_test, task_watch_changes,
+    task_build_diagrams, task_check, task_check_all, task_check_types,
+    task_format, task_format_all, task_play, task_test, task_watch_changes,
 )
 
 
@@ -10,12 +10,13 @@ from pattern_feedback_tool.doit_tasks import (
     ('task'), [
         task_build_diagrams,
         task_check,
+        task_check_all,
         task_check_types,
         task_format,
-        task_next_task,
+        task_format_all,
         task_play,
-        task_watch_changes,
         task_test,
+        task_watch_changes,
     ],
 )
 def test_task_test(task, assert_against_cache):

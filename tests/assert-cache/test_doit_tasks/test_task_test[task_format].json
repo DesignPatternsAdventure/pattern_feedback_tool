@@ -11,6 +11,7 @@
   "_json": {
     "actions": [
       "Cmd: poetry run black \"game/tasks\"",
+      "Cmd: poetry run unimport \"game/tasks\" --remove",
       "Cmd: poetry run isort \"game/tasks\""
     ],
     "title": "<function _show_cmd(..)>",

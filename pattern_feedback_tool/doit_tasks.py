@@ -30,23 +30,29 @@ def task_play() -> DoitTask:
     ])
 
 
+# ================== Feedback and Pass/Fail Tasks ==================
+
+
 @beartype
-def task_next_task() -> DoitTask:
-    """Ask for the next task!
+def task_format_all() -> list[DoitAction]:
+    """Format all project code and not just the tasks.
 
     Returns:
-        DoitTask: doit task
+        list[DoitAction]: doit task
 
     """
-    return debug_task([
-        (SETTINGS.next_task, ()),
-    ])
-
-
-# TODO: We probably need commands related to choose_task where the user can undo next_task
-
-
-# ================== Feedback and Pass/Fail Tasks ==================
+    run = 'poetry run'
+    run_mod = f'{run} python -m'
+    paths = 'tests game ./dodo.py'
+    docfmt_args = '--blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120'
+    return [
+        f'{run_mod} black {paths}',
+        f'{run} pyupgrade {paths} --py10-plus --keep-runtime-typing',
+        f'{run_mod} unimport {paths} --include-star-import --remove',
+        f'{run} absolufy-imports {paths} --never',
+        f'{run_mod} isort {paths}',
+        f'{run_mod} docformatter {paths} {docfmt_args}',
+    ]
 
 
 @beartype
@@ -60,6 +66,7 @@ def task_format() -> DoitTask:
     task_dir = SETTINGS.task_dir().as_posix()
     return debug_task([
         Interactive(f'poetry run black "{task_dir}"'),
+        Interactive(f'poetry run unimport "{task_dir}" --remove'),
         Interactive(f'poetry run isort "{task_dir}"'),
     ])
 
@@ -102,36 +109,43 @@ def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> None:  
 
 
 @beartype
-def _lint_python() -> list[DoitAction]:
+def _lint_python(paths: str) -> list[DoitAction]:
     """Lint specified files creating summary log file of errors.
 
     Args:
-        lint_paths: list of file and directory paths to lint
-        path_flake8: path to flake8 configuration file
-        ignore_logs: list of error codes to ignore (beyond the flake8 config settings). Default is to ignore Code Tags
-        xenon_args: string arguments passed to xenon. Default is for most strict options available
-        diff_fail_under: integer minimum test coverage. Default is 80
-        diff_branch: string branch to compare against. Default is `origin/main`
+        paths: str set of paths to lint
 
     Returns:
         list[DoitAction]: doit task
 
     """
-    task_dir = SETTINGS.task_dir().as_posix()
+
     flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
     pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
 
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
-            f'poetry run flake8 {task_dir} --config=.flake8 --output-file={flake8_log_path.as_posix()} --color=never --exit-zero',
+            f'poetry run flake8 {paths} --config=.flake8 --output-file={flake8_log_path.as_posix()} --color=never --exit-zero',
         ),
         (if_found_unlink, (pylint_log_path,)),
         Interactive(
-            f'poetry run pylint {task_dir} --rcfile=.pylintrc --output-format=json --output={pylint_log_path.as_posix()} --exit-zero',
+            f'poetry run pylint {paths} --rcfile=.pylintrc --output-format=json --output={pylint_log_path.as_posix()} --exit-zero',
         ),
         (_merge_linting_logs, (flake8_log_path, pylint_log_path)),
     ]
+
+
+@beartype
+def task_check_all() -> DoitTask:
+    """Format all project code and not just the tasks.
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    paths = 'tests game ./dodo.py'
+    return debug_task(_lint_python(paths))
 
 
 @beartype
@@ -142,7 +156,8 @@ def task_check() -> DoitTask:
         DoitTask: doit task
 
     """
-    return debug_task(_lint_python())
+    task_dir = SETTINGS.task_dir().as_posix()
+    return debug_task(_lint_python(task_dir))
 
 
 @beartype

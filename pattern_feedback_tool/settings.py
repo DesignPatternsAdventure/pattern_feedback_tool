@@ -12,9 +12,6 @@ class _Settings(BaseSettings):
     PROJ_DIR: Path = Field(default_factory=lambda: Path('.'))
     USER_CONFIG: Path = Field(default_factory=lambda: Path('.pft_config.toml'))
 
-    ACTIVE_TASK: str = 'task_1'
-    COMPLETED_TASKS: list[str] = Field(default_factory=list)
-
     # Extra hooks to modify task behavior. Intended for internal use only
     ARGS_PYTEST: str = ''
     ARGS_PYLINT: str = ''
@@ -26,13 +23,7 @@ class _Settings(BaseSettings):
 
     @beartype
     def task_dir(self) -> Path:
-        return self.PROJ_DIR / 'game/tasks'  # / self.ACTIVE_TASK` << FIXME: Use sub-directories
-
-    @beartype
-    def next_task(self) -> None:
-        # TODO: Call self.persist() and update the ACTIVE_TASK & COMPLETED_TASKS
-        # TODO: Generate the task directory based on existing user code, the new skeleton code, and README
-        raise NotImplementedError('Sorry, but there is no Task2 yet')
+        return self.PROJ_DIR / 'game/tasks'
 
     @beartype
     def persist(self) -> None:
