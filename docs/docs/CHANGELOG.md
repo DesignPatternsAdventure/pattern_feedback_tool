@@ -2,6 +2,12 @@
 
 ### Fix
 
+- use file_paths for absolufy-imports and docformatter
+
+## 0.2.1 (2022-11-09)
+
+### Fix
+
 - format_all needs to return actions
 
 ## 0.2.0 (2022-11-09)
