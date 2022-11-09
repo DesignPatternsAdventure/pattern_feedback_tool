@@ -1,3 +1,9 @@
+## Unreleased
+
+### Feat
+
+- remove next_task and add *_all tasks
+
 ## 0.1.1 (2022-11-08)
 
 ### Feat
