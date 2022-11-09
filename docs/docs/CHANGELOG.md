@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Fix
+
+- format_all needs to return actions
+
+## 0.2.0 (2022-11-09)
+
 ### Feat
 
 - remove next_task and add *_all tasks

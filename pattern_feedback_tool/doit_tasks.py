@@ -44,10 +44,13 @@ def task_format_all() -> DoitTask:
     run = 'poetry run'
     run_mod = f'{run} python -m'
     paths = 'tests game ./dodo.py'
+    cwd = Path.cwd()
+    tracked_files = [*(cwd / 'game').rglob('*.py')] + [*(cwd / 'tests').rglob('*.py')] + [cwd / 'dodo.py']
+    file_paths = ' '.join([f'"{pth.relative_to(cwd).as_posix()}"' for pth in tracked_files])
     docfmt_args = '--blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120'
     return debug_task([
         f'{run_mod} black {paths}',
-        f'{run} pyupgrade {paths} --py10-plus --keep-runtime-typing',
+        f'{run} pyupgrade {file_paths} --py310-plus --keep-runtime-typing',
         f'{run_mod} unimport {paths} --include-star-import --remove',
         f'{run} absolufy-imports {paths} --never',
         f'{run_mod} isort {paths}',

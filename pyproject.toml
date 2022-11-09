@@ -12,7 +12,7 @@ pythons = ["3.10"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.2.0"
+version = "0.2.1"
 version_files = ["pyproject.toml", "pattern_feedback_tool/__init__.py"]
 
 [tool.isort]
@@ -27,7 +27,7 @@ multi_line_output = 5
 
 [tool.poetry]
 name = "pattern_feedback_tool"
-version = "0.2.0"
+version = "0.2.1"
 description = "Design Pattern Feedback Tool"
 license = "MIT"
 authors = ["Kyle King <dev.act.kyle@gmail.com>"]
@@ -51,18 +51,13 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10.5"
+absolufy-imports = ">=0.3.1"
 beartype = ">=0.11.0"
 better-exceptions = ">=0.3.3"
 calcipy = ">=0.20.1"
 code2flow = ">=2.5.0"
+docformatter = ">=1.5.0"
 doit = ">=0.34.2"
-pycg = ">=0.0.6"
-pydantic = ">=1.8.1"
-pyparsing = ">=3.0.9"
-radon = ">=5.1.0"
-rich = ">=12.6.0"
-tomlkit = ">=0.11.5"
-
 flake8 = ">=5.0.4"
 flake8-bandit = ">=3.0.0"
 flake8-black = ">=0.3.3"
@@ -90,17 +85,19 @@ flake8-typing-imports = ">=1.13.0"
 flake8-use-pathlib = ">=0.3.0"
 isort = ">=5.10.1"
 mypy = ">=0.981"
+pycg = ">=0.0.6"
+pydantic = ">=1.8.1"
 pylint = ">=2.13.9"
+pyparsing = ">=3.0.9"
+pytest = ">=7.1.2"
+pytest-watcher = ">=0.2.3"
+pyupgrade = ">=3.2.0"
+radon = ">=5.1.0"
+rich = ">=12.6.0"
+tomlkit = ">=0.11.5"
 tryceratops = ">=1.1.0"
 unimport = ">=0.11.3"
 vulture = ">=2.4"
-
-# # Naming warnings are defered to pylint
-# pep8-naming = ">=0.11.1"
-# flake8-variables-names = ">=0.0.5"
-
-pytest = ">=7.1.2"
-pytest-watcher = ">=0.2.3"
 
 [tool.poetry.group.dev.dependencies]
 calcipy = { version = "*", extras = ["dev", "lint", "test"] }

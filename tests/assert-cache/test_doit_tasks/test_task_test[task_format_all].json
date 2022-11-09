@@ -11,7 +11,7 @@
   "_json": {
     "actions": [
       "poetry run python -m black tests game ./dodo.py",
-      "poetry run pyupgrade tests game ./dodo.py --py10-plus --keep-runtime-typing",
+      "poetry run pyupgrade \"tests/configuration.py\" \"tests/test_zz_pattern_feedback_tool.py\" \"tests/conftest.py\" \"tests/test_graphics.py\" \"tests/test_lint_parsers.py\" \"tests/__init__.py\" \"tests/test_doit_tasks.py\" \"tests/test_linters.py\" \"tests/test_settings.py\" \"dodo.py\" --py310-plus --keep-runtime-typing",
       "poetry run python -m unimport tests game ./dodo.py --include-star-import --remove",
       "poetry run absolufy-imports tests game ./dodo.py --never",
       "poetry run python -m isort tests game ./dodo.py",
