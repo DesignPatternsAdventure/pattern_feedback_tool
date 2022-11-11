@@ -2,6 +2,12 @@
 
 ### Fix
 
+- return false to error on check errors
+
+## 0.3.6 (2022-11-10)
+
+### Fix
+
 - rufix: resolve pyreverse path and ptw is poetry-only
 
 ## 0.3.5 (2022-11-10)

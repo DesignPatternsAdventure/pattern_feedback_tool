@@ -14,7 +14,7 @@ pythons = ["3.10"]
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.3.6"
+version = "0.3.7"
 version_files = ["pyproject.toml", "pattern_feedback_tool/__init__.py"]
 
 [tool.isort]
@@ -29,7 +29,7 @@ multi_line_output = 5
 
 [tool.poetry]
 name = "pattern_feedback_tool"
-version = "0.3.6"
+version = "0.3.7"
 description = "Design Pattern Feedback Tool"
 license = "MIT"
 authors = ["Kyle King <dev.act.kyle@gmail.com>"]
