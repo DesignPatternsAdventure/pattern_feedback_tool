@@ -119,6 +119,19 @@ def task_format() -> DoitTask:
 
 
 @beartype
+def task__priv_test() -> DoitTask:
+    """Run all tests using Pytest.
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    return user_task([
+        Interactive(f'{run_mod()} pytest tests {SETTINGS.ARGS_PYTEST}'),
+    ])
+
+
+@beartype
 def task_test() -> DoitTask:
     """Run all tests marked with 'tasks' using Pytest.
 
@@ -256,18 +269,34 @@ def task_build_diagrams() -> DoitTask:
 
 
 @beartype
-def task_watch_changes() -> DoitTask:
+def _build_ptw(pytest_args: str) -> DoitTask:
+    task_dir = SETTINGS.task_dir().as_posix()
+    return {
+        'actions': [Interactive(f'{run_mod()} ptw "{task_dir}" {pytest_args} {SETTINGS.ARGS_PYTEST}')],
+        'verbosity': 2,
+    }
+
+
+@beartype
+def task__priv_watch_changes() -> DoitTask:
     """Re-run tests on changes with pytest watcher.
 
     Returns:
         DoitTask: doit task
 
     """
-    task_dir = SETTINGS.task_dir().as_posix()
-    return {
-        'actions': [Interactive(f'{run_mod()} ptw "{task_dir}" {SETTINGS.ARGS_PYTEST}')],
-        'verbosity': 2,
-    }
+    return _build_ptw('')
+
+
+@beartype
+def task_watch_changes() -> DoitTask:
+    """Re-run tests tagged with tasks on changes with pytest watcher.
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    return _build_ptw('--disable-warnings -m tasks')
 
 
 @beartype
