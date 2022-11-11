@@ -50,7 +50,7 @@ def user_task(actions: Iterable[DoitAction], verbosity: int = 2) -> DoitTask:
 
 
 @beartype
-def task___update() -> DoitTask:
+def task__update() -> DoitTask:
     """Run update operations and update the requirements file.
 
     Returns:
@@ -86,7 +86,7 @@ def task_play() -> DoitTask:
 
 
 @beartype
-def task___format() -> DoitTask:
+def task__format() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
@@ -125,7 +125,7 @@ def task_format() -> DoitTask:
 
 
 @beartype
-def task___test() -> DoitTask:
+def task__test() -> DoitTask:
     """Run all tests using Pytest.
 
     Returns:
@@ -209,7 +209,7 @@ def _lint_python(paths: str) -> list[DoitAction]:
 
 
 @beartype
-def task___check() -> DoitTask:
+def task__check() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
@@ -280,7 +280,7 @@ def task_build_diagrams() -> DoitTask:
 @beartype
 def _build_ptw(pytest_args: str) -> DoitTask:
     """Note: when not installed with poetry: `No such file or directory: 'pytest'`."""
-    def print_warning():
+    def print_warning() -> None:
         console = Console()
         console.print('Warning: this task only works when installed with poetry', style='bold yellow')
 
@@ -295,7 +295,7 @@ def _build_ptw(pytest_args: str) -> DoitTask:
 
 
 @beartype
-def task___watch_changes() -> DoitTask:
+def task__watch_changes() -> DoitTask:
     """Re-run tests on changes with pytest watcher.
 
     Returns:
@@ -317,7 +317,7 @@ def task_watch_changes() -> DoitTask:
 
 
 @beartype
-def task___check_types() -> DoitTask:
+def task__check_types() -> DoitTask:
     """Run type annotation checks with MyPy against the entire package.
 
     Returns:

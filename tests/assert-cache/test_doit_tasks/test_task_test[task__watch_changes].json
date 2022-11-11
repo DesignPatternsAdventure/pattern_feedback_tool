@@ -2,7 +2,7 @@
   "_info": [
     {
       "func_args": {
-        "task": "<function task___check_types(..)>"
+        "task": "<function task__watch_changes(..)>"
       },
       "test_file": "test_doit_tasks.py",
       "test_name": "test_task_test"
@@ -10,9 +10,12 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m mypy game "
+      [
+        "<function _build_ptw.<locals>.print_warning(..)>",
+        []
+      ],
+      "Cmd: poetry run ptw \"game/tasks\"  "
     ],
-    "title": "<function _show_cmd(..)>",
     "verbosity": 2
   }
 }

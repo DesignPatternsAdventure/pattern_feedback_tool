@@ -1,24 +1,23 @@
 import pytest
 
 from pattern_feedback_tool.doit_tasks import (
-    task___build_diagrams, task___check, task___check_types, task___format,
-    task___test, task___update, task___watch_changes, task_build_diagrams, task_check,
-    task_check_types, task_format, task_play, task_test, task_watch_changes,
+    task__build_diagrams, task__check, task__check_types, task__format, task__test, task__update, task__watch_changes,
+    task_build_diagrams, task_check, task_check_types, task_format, task_play, task_test, task_watch_changes,
 )
 
 
 @pytest.mark.parametrize(
     'task', [
-        task___build_diagrams,
-        task___check,
-        task___check_types,
-        task___format,
-        task___update,
-        task___watch_changes,
+        task__build_diagrams,
+        task__check,
+        task__check_types,
+        task__format,
+        task__update,
+        task__watch_changes,
         task_build_diagrams,
         task_check,
         task_check_types,
-        task___test,
+        task__test,
         task_format,
         task_play,
         task_test,

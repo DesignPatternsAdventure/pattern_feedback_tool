@@ -10,7 +10,11 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m ptw \"game/tasks\" --disable-warnings -m tasks "
+      [
+        "<function _build_ptw.<locals>.print_warning(..)>",
+        []
+      ],
+      "Cmd: poetry run ptw \"game/tasks\" --disable-warnings -m tasks "
     ],
     "verbosity": 2
   }

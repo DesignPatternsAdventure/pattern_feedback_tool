@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m mypy game/tasks "
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m mypy game/tasks "
     ],
     "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2

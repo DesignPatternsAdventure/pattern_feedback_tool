@@ -928,12 +928,12 @@
         "version": "1.8.0"
     },
     "libcst": {
-        "datetime": "2022-07-12T15:12:04.492477+00:00",
+        "datetime": "2022-11-10T21:32:41.063465+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2022-07-12T15:12:04.492477+00:00",
-        "latest_version": "0.4.7",
+        "latest_datetime": "2022-11-10T21:32:41.063465+00:00",
+        "latest_version": "0.4.9",
         "name": "libcst",
-        "version": "0.4.7"
+        "version": "0.4.9"
     },
     "licensecheck": {
         "datetime": "2022-10-22T00:51:07.376062+00:00",
@@ -1488,12 +1488,12 @@
         "version": "2022.6"
     },
     "pyupgrade": {
-        "datetime": "2022-10-29T21:51:24.599904+00:00",
+        "datetime": "2022-11-10T15:38:47.681158+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
         "latest_datetime": "2022-11-10T15:38:47.681158+00:00",
         "latest_version": "3.2.2",
         "name": "pyupgrade",
-        "version": "3.2.0"
+        "version": "3.2.2"
     },
     "pyyaml": {
         "datetime": "2021-10-13T19:39:42.916039+00:00",
@@ -1568,12 +1568,12 @@
         "version": "0.2.7"
     },
     "semgrep": {
-        "datetime": "2022-11-08T19:43:06.388089+00:00",
+        "datetime": "2022-11-10T21:12:36.782327+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
         "latest_datetime": "2022-11-10T21:12:36.782327+00:00",
         "latest_version": "0.121.2",
         "name": "semgrep",
-        "version": "0.121.1"
+        "version": "0.121.2"
     },
     "setuptools": {
         "datetime": "2022-11-04T19:20:02.418038+00:00",
@@ -1624,12 +1624,12 @@
         "version": "0.8.0"
     },
     "stevedore": {
-        "datetime": "2022-10-20T10:41:52.999653+00:00",
+        "datetime": "2022-11-10T09:08:22.025426+00:00",
         "domain": "https://pypi.org/pypi/{name}/json",
-        "latest_datetime": "2022-10-20T10:51:47.419612+00:00",
-        "latest_version": "4.0.2",
+        "latest_datetime": "2022-11-10T09:08:22.025426+00:00",
+        "latest_version": "4.1.1",
         "name": "stevedore",
-        "version": "4.1.0"
+        "version": "4.1.1"
     },
     "strenum": {
         "datetime": "2022-06-22T06:04:09.015277+00:00",

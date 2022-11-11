@@ -2,7 +2,7 @@
   "_info": [
     {
       "func_args": {
-        "task": "<function task___update(..)>"
+        "task": "<function task__check_types(..)>"
       },
       "test_file": "test_doit_tasks.py",
       "test_name": "test_task_test"
@@ -10,8 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry lock --no-update",
-      "Cmd: poetry export --format=requirements.txt --output=requirements.txt --without-hashes --with=dev"
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m mypy game "
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2

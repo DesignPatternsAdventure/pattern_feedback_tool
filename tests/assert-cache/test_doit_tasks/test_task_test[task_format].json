@@ -10,9 +10,9 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m black \"game/tasks\"",
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m unimport \"game/tasks\" --remove",
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m isort \"game/tasks\""
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m black \"game/tasks\"",
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m unimport \"game/tasks\" --remove",
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m isort \"game/tasks\""
     ],
     "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2

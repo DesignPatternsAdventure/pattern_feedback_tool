@@ -2,7 +2,7 @@
   "_info": [
     {
       "func_args": {
-        "task": "<function task___test(..)>"
+        "task": "<function task__test(..)>"
       },
       "test_file": "test_doit_tasks.py",
       "test_name": "test_task_test"
@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m pytest tests "
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m pytest tests "
     ],
     "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2
