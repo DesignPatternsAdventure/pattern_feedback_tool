@@ -2,6 +2,12 @@
 
 ### Fix
 
+- another issue with cz bump...
+
+## 0.3.4 (2022-11-10)
+
+### Fix
+
 - resolve issues running play and build_diagrams
 
 ## 0.3.3 (2022-11-10)
