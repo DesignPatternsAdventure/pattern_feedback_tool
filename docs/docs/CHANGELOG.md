@@ -2,6 +2,12 @@
 
 ### Fix
 
+- another issue with cz and the lock
+
+## 0.3.1 (2022-11-10)
+
+### Fix
+
 - correct improper bump to ptw
 
 ## 0.3.0 (2022-11-10)
