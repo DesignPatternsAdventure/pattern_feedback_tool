@@ -57,5 +57,5 @@ poetry run doit run lock document deploy_docs publish
 | `pattern_feedback_tool/settings.py`     |           28 |         2 |          0 | 92.9%      |
 | **Totals**                              |          254 |        19 |          0 | 92.5%      |
 
-Generated on: 2022-11-10
+Generated on: 2022-11-11
 <!-- {cte} -->

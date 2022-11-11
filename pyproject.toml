@@ -86,6 +86,7 @@ flake8-tuple = ">=0.4.1"
 flake8-typing-imports = ">=1.13.0"
 flake8-use-pathlib = ">=0.3.0"
 isort = ">=5.10.1"
+lxml = ">=4.9.1"                                               # required for the HTML mypy
 mypy = ">=0.981"
 pycg = ">=0.0.6"
 pydantic = ">=1.8.1"
