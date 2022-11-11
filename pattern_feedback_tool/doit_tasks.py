@@ -19,6 +19,12 @@ from .settings import SETTINGS
 
 
 @lru_cache(maxsize=1)
+def smart_exec(executable: str) -> str:
+    """Assumes executable is in the same directory as Python."""
+    return str(Path(sys.executable).parent / executable)
+
+
+@lru_cache(maxsize=1)
 def run_mod() -> str:
     """Return the currently active Python."""
     return f'{sys.executable} -m'
@@ -233,7 +239,7 @@ def _log_pyreverse_file_locations(diagrams_dir: Path) -> None:
 def __build_diagrams(package: str, diagrams_dir: Path) -> DoitTask:
     return debug_task([
         (partial(diagrams_dir.mkdir, exist_ok=True), ()),
-        f'{run_mod()} pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
+        f'{smart_exec("pyreverse")} {package} --output png --output-directory={diagrams_dir.as_posix()}',
         (_log_pyreverse_file_locations, (diagrams_dir,)),
     ])
 
@@ -270,9 +276,17 @@ def task_build_diagrams() -> DoitTask:
 
 @beartype
 def _build_ptw(pytest_args: str) -> DoitTask:
+    """Note: when not installed with poetry: `No such file or directory: 'pytest'`."""
+    def print_warning():
+        console = Console()
+        console.print('Warning: this task only works when installed with poetry', style='bold yellow')
+
     task_dir = SETTINGS.task_dir().as_posix()
     return {
-        'actions': [Interactive(f'{run_mod()} ptw "{task_dir}" {pytest_args} {SETTINGS.ARGS_PYTEST}')],
+        'actions': [
+            (print_warning, ()),
+            Interactive(f'poetry run ptw "{task_dir}" {pytest_args} {SETTINGS.ARGS_PYTEST}')
+        ],
         'verbosity': 2,
     }
 
