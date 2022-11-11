@@ -366,10 +366,10 @@ rules:
           def nice_function_name():
             pass
       - no-match: |
-          def _private():
+          def _ate():
             pass
       - no-match: |
-          def __very_private():
+          def __very_ate():
             pass
       - no-match: |
           class Something:

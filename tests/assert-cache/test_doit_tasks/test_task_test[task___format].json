@@ -2,7 +2,7 @@
   "_info": [
     {
       "func_args": {
-        "task": "<function task__priv_format(..)>"
+        "task": "<function task___format(..)>"
       },
       "test_file": "test_doit_tasks.py",
       "test_name": "test_task_test"

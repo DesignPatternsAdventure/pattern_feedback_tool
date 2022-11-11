@@ -44,7 +44,7 @@ def user_task(actions: Iterable[DoitAction], verbosity: int = 2) -> DoitTask:
 
 
 @beartype
-def task__priv_update() -> DoitTask:
+def task___update() -> DoitTask:
     """Run update operations and update the requirements file.
 
     Returns:
@@ -80,7 +80,7 @@ def task_play() -> DoitTask:
 
 
 @beartype
-def task__priv_format() -> DoitTask:
+def task___format() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
@@ -119,7 +119,7 @@ def task_format() -> DoitTask:
 
 
 @beartype
-def task__priv_test() -> DoitTask:
+def task___test() -> DoitTask:
     """Run all tests using Pytest.
 
     Returns:
@@ -200,7 +200,7 @@ def _lint_python(paths: str) -> list[DoitAction]:
 
 
 @beartype
-def task__priv_check() -> DoitTask:
+def task___check() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
@@ -230,7 +230,7 @@ def _log_pyreverse_file_locations(diagrams_dir: Path) -> None:
 
 
 @beartype
-def task__priv_build_diagrams() -> DoitTask:
+def task___build_diagrams() -> DoitTask:
     """Create shareable code diagrams for entire project.
 
     Returns:
@@ -278,7 +278,7 @@ def _build_ptw(pytest_args: str) -> DoitTask:
 
 
 @beartype
-def task__priv_watch_changes() -> DoitTask:
+def task___watch_changes() -> DoitTask:
     """Re-run tests on changes with pytest watcher.
 
     Returns:
@@ -300,7 +300,7 @@ def task_watch_changes() -> DoitTask:
 
 
 @beartype
-def task__priv_check_types() -> DoitTask:
+def task___check_types() -> DoitTask:
     """Run type annotation checks with MyPy against the entire package.
 
     Returns:
