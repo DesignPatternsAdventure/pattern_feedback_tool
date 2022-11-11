@@ -656,13 +656,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pattern_feedback_tool.doit_tasks.task___build_diagrams" class="md-nav__link">
-    task___build_diagrams()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pattern_feedback_tool.doit_tasks.task___check" class="md-nav__link">
     task___check()
   </a>
@@ -700,6 +693,13 @@
           <li class="md-nav__item">
   <a href="#pattern_feedback_tool.doit_tasks.task___watch_changes" class="md-nav__link">
     task___watch_changes()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern_feedback_tool.doit_tasks.task__build_diagrams" class="md-nav__link">
+    task__build_diagrams()
   </a>
   
 </li>
@@ -924,13 +924,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pattern_feedback_tool.doit_tasks.task___build_diagrams" class="md-nav__link">
-    task___build_diagrams()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pattern_feedback_tool.doit_tasks.task___check" class="md-nav__link">
     task___check()
   </a>
@@ -968,6 +961,13 @@
           <li class="md-nav__item">
   <a href="#pattern_feedback_tool.doit_tasks.task___watch_changes" class="md-nav__link">
     task___watch_changes()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern_feedback_tool.doit_tasks.task__build_diagrams" class="md-nav__link">
+    task__build_diagrams()
   </a>
   
 </li>
@@ -1170,70 +1170,6 @@
 <span class="linenos" data-linenos="22 "></span><span class="k">def</span> <span class="nf">run_mod</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="linenos" data-linenos="23 "></span>    <span class="sd">&quot;&quot;&quot;Return the currently active Python.&quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="24 "></span>    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="si">}</span><span class="s1"> -m&#39;</span>
-</code></pre></div>
-      </details>
-  </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-
-<h3 id="pattern_feedback_tool.doit_tasks.task___build_diagrams" class="doc doc-heading">
-        <span class="doc doc-object-name doc-function-name">task___build_diagrams</span>
-
-
-<a href="#pattern_feedback_tool.doit_tasks.task___build_diagrams" class="headerlink" title="Permanent link">⚓︎</a></h3>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">task___build_diagrams</span><span class="p">()</span>
-</code></pre></div>
-
-  <div class="doc doc-contents ">
-  
-      <p>Create shareable code diagrams for entire project.</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th><b>RETURNS</b></th>
-        <th><b>DESCRIPTION</b></th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-              <code>DoitTask</code>
-          </td>
-          <td class="doc-returns-details">
-            <p>doit task</p>
-              <p>
-                <span class="doc-returns-annotation">
-                  <b>TYPE:</b>
-                    <code><span title="calcipy.doit_tasks.doit_globals.DoitTask">DoitTask</span></code>
-                </span>
-              </p>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-
-      <details class="quote">
-        <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="232 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="233 "></span><span class="k">def</span> <span class="nf">task___build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="234 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams for entire project.</span>
-<span class="linenos" data-linenos="235 "></span>
-<span class="linenos" data-linenos="236 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="237 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="238 "></span>
-<span class="linenos" data-linenos="239 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="240 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;game&#39;</span>
-<span class="linenos" data-linenos="241 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
-<span class="linenos" data-linenos="242 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="243 "></span>        <span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">()),</span>
-<span class="linenos" data-linenos="244 "></span>        <span class="sa">f</span><span class="s1">&#39;poetry run pyreverse </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1"> --output png --output-directory=</span><span class="si">{</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-<span class="linenos" data-linenos="245 "></span>        <span class="p">(</span><span class="n">_log_pyreverse_file_locations</span><span class="p">,</span> <span class="p">(</span><span class="n">diagrams_dir</span><span class="p">,)),</span>
-<span class="linenos" data-linenos="246 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
   </div>
@@ -1616,6 +1552,66 @@
 
 
 
+<h3 id="pattern_feedback_tool.doit_tasks.task__build_diagrams" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">task__build_diagrams</span>
+
+
+<a href="#pattern_feedback_tool.doit_tasks.task__build_diagrams" class="headerlink" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">task__build_diagrams</span><span class="p">()</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Create shareable code diagrams for the entire game folder.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th><b>RETURNS</b></th>
+        <th><b>DESCRIPTION</b></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              <code>DoitTask</code>
+          </td>
+          <td class="doc-returns-details">
+            <p>doit task</p>
+              <p>
+                <span class="doc-returns-annotation">
+                  <b>TYPE:</b>
+                    <code><span title="calcipy.doit_tasks.doit_globals.DoitTask">DoitTask</span></code>
+                </span>
+              </p>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="241 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="242 "></span><span class="k">def</span> <span class="nf">task__build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="243 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams for the entire game folder.</span>
+<span class="linenos" data-linenos="244 "></span>
+<span class="linenos" data-linenos="245 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="246 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="247 "></span>
+<span class="linenos" data-linenos="248 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="249 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;game&#39;</span>
+<span class="linenos" data-linenos="250 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
+<span class="linenos" data-linenos="251 "></span>    <span class="k">return</span> <span class="n">__build_diagrams</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">diagrams_dir</span><span class="p">)</span>
+</code></pre></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
 <h3 id="pattern_feedback_tool.doit_tasks.task_build_diagrams" class="doc doc-heading">
         <span class="doc doc-object-name doc-function-name">task_build_diagrams</span>
 
@@ -1655,23 +1651,18 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="249 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="250 "></span><span class="k">def</span> <span class="nf">task_build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="251 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams.</span>
-<span class="linenos" data-linenos="252 "></span>
-<span class="linenos" data-linenos="253 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="254 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="255 "></span>
-<span class="linenos" data-linenos="256 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="257 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span>
-<span class="linenos" data-linenos="258 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="n">task_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="linenos" data-linenos="259 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">task_dir</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="254 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="255 "></span><span class="k">def</span> <span class="nf">task_build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="256 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams.</span>
+<span class="linenos" data-linenos="257 "></span>
+<span class="linenos" data-linenos="258 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="259 "></span><span class="sd">        DoitTask: doit task</span>
 <span class="linenos" data-linenos="260 "></span>
-<span class="linenos" data-linenos="261 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="262 "></span>        <span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">()),</span>
-<span class="linenos" data-linenos="263 "></span>        <span class="sa">f</span><span class="s1">&#39;poetry run pyreverse </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1"> --output png --output-directory=</span><span class="si">{</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-<span class="linenos" data-linenos="264 "></span>        <span class="p">(</span><span class="n">_log_pyreverse_file_locations</span><span class="p">,</span> <span class="p">(</span><span class="n">diagrams_dir</span><span class="p">,)),</span>
-<span class="linenos" data-linenos="265 "></span>    <span class="p">])</span>
+<span class="linenos" data-linenos="261 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="262 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span>
+<span class="linenos" data-linenos="263 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="n">task_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="264 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">task_dir</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
+<span class="linenos" data-linenos="265 "></span>    <span class="k">return</span> <span class="n">__build_diagrams</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">diagrams_dir</span><span class="p">)</span>
 </code></pre></div>
       </details>
   </div>
@@ -1913,7 +1904,7 @@
 <span class="linenos" data-linenos="72 "></span>
 <span class="linenos" data-linenos="73 "></span><span class="sd">    &quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="74 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="75 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> -m game.play&#39;</span><span class="p">),</span>
+<span class="linenos" data-linenos="75 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> game.play&#39;</span><span class="p">),</span>
 <span class="linenos" data-linenos="76 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
