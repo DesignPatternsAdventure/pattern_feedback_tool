@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- fix incorrect double underscore in private tasks
+
 ## 0.3.7 (2022-11-10)
 
 ### Fix
