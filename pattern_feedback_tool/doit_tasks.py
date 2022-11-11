@@ -55,7 +55,7 @@ def task__priv_update() -> DoitTask:
         [
             Interactive('poetry lock --no-update'),
             Interactive(
-                'poetry export --format=requirements.txt --output=requirements.txt --without-hashes',
+                'poetry export --format=requirements.txt --output=requirements.txt --without-hashes --with=dev',
             ),
         ],
     )
