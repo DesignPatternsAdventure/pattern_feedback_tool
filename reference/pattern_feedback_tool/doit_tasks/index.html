@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://pattern_feedback_tool.kyleking.me/reference/pattern_feedback_tool/doit_tasks/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
     
     
       
@@ -26,7 +26,7 @@
       <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.08040f6c.min.css">
         
       
       
@@ -64,7 +64,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="green">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green">
   
     
     
@@ -120,7 +120,8 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="green"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
           
         
       </form>
@@ -684,8 +685,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pattern_feedback_tool.doit_tasks.task__priv_test" class="md-nav__link">
+    task__priv_test()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pattern_feedback_tool.doit_tasks.task__priv_update" class="md-nav__link">
     task__priv_update()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern_feedback_tool.doit_tasks.task__priv_watch_changes" class="md-nav__link">
+    task__priv_watch_changes()
   </a>
   
 </li>
@@ -938,8 +953,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pattern_feedback_tool.doit_tasks.task__priv_test" class="md-nav__link">
+    task__priv_test()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pattern_feedback_tool.doit_tasks.task__priv_update" class="md-nav__link">
     task__priv_update()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern_feedback_tool.doit_tasks.task__priv_watch_changes" class="md-nav__link">
+    task__priv_watch_changes()
   </a>
   
 </li>
@@ -1191,21 +1220,21 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="219 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="220 "></span><span class="k">def</span> <span class="nf">task__priv_build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="221 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams for entire project.</span>
-<span class="linenos" data-linenos="222 "></span>
-<span class="linenos" data-linenos="223 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="224 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="225 "></span>
-<span class="linenos" data-linenos="226 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="227 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;game&#39;</span>
-<span class="linenos" data-linenos="228 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
-<span class="linenos" data-linenos="229 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="230 "></span>        <span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">()),</span>
-<span class="linenos" data-linenos="231 "></span>        <span class="sa">f</span><span class="s1">&#39;poetry run pyreverse </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1"> --output png --output-directory=</span><span class="si">{</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-<span class="linenos" data-linenos="232 "></span>        <span class="p">(</span><span class="n">_log_pyreverse_file_locations</span><span class="p">,</span> <span class="p">(</span><span class="n">diagrams_dir</span><span class="p">,)),</span>
-<span class="linenos" data-linenos="233 "></span>    <span class="p">])</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="232 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="233 "></span><span class="k">def</span> <span class="nf">task__priv_build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="234 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams for entire project.</span>
+<span class="linenos" data-linenos="235 "></span>
+<span class="linenos" data-linenos="236 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="237 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="238 "></span>
+<span class="linenos" data-linenos="239 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="240 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;game&#39;</span>
+<span class="linenos" data-linenos="241 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">package</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
+<span class="linenos" data-linenos="242 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">([</span>
+<span class="linenos" data-linenos="243 "></span>        <span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">()),</span>
+<span class="linenos" data-linenos="244 "></span>        <span class="sa">f</span><span class="s1">&#39;poetry run pyreverse </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1"> --output png --output-directory=</span><span class="si">{</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="245 "></span>        <span class="p">(</span><span class="n">_log_pyreverse_file_locations</span><span class="p">,</span> <span class="p">(</span><span class="n">diagrams_dir</span><span class="p">,)),</span>
+<span class="linenos" data-linenos="246 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
   </div>
@@ -1255,16 +1284,16 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="189 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="190 "></span><span class="k">def</span> <span class="nf">task__priv_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="191 "></span>    <span class="sd">&quot;&quot;&quot;Format all project code and not just the tasks.</span>
-<span class="linenos" data-linenos="192 "></span>
-<span class="linenos" data-linenos="193 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="194 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="195 "></span>
-<span class="linenos" data-linenos="196 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="197 "></span>    <span class="n">paths</span> <span class="o">=</span> <span class="s1">&#39;tests game ./dodo.py&#39;</span>
-<span class="linenos" data-linenos="198 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">(</span><span class="n">_lint_python</span><span class="p">(</span><span class="n">paths</span><span class="p">))</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="202 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="203 "></span><span class="k">def</span> <span class="nf">task__priv_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="204 "></span>    <span class="sd">&quot;&quot;&quot;Format all project code and not just the tasks.</span>
+<span class="linenos" data-linenos="205 "></span>
+<span class="linenos" data-linenos="206 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="207 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="208 "></span>
+<span class="linenos" data-linenos="209 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="210 "></span>    <span class="n">paths</span> <span class="o">=</span> <span class="s1">&#39;tests game ./dodo.py&#39;</span>
+<span class="linenos" data-linenos="211 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">(</span><span class="n">_lint_python</span><span class="p">(</span><span class="n">paths</span><span class="p">))</span>
 </code></pre></div>
       </details>
   </div>
@@ -1314,17 +1343,17 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="273 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="274 "></span><span class="k">def</span> <span class="nf">task__priv_check_types</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="275 "></span>    <span class="sd">&quot;&quot;&quot;Run type annotation checks with MyPy against the entire package.</span>
-<span class="linenos" data-linenos="276 "></span>
-<span class="linenos" data-linenos="277 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="278 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="279 "></span>
-<span class="linenos" data-linenos="280 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="281 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="282 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> mypy game </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_MYPY</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="283 "></span>    <span class="p">])</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="302 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="303 "></span><span class="k">def</span> <span class="nf">task__priv_check_types</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="304 "></span>    <span class="sd">&quot;&quot;&quot;Run type annotation checks with MyPy against the entire package.</span>
+<span class="linenos" data-linenos="305 "></span>
+<span class="linenos" data-linenos="306 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="307 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="308 "></span>
+<span class="linenos" data-linenos="309 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="310 "></span>    <span class="k">return</span> <span class="n">debug_task</span><span class="p">([</span>
+<span class="linenos" data-linenos="311 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> mypy game </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_MYPY</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+<span class="linenos" data-linenos="312 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
   </div>
@@ -1405,6 +1434,66 @@
 
 
 
+<h3 id="pattern_feedback_tool.doit_tasks.task__priv_test" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">task__priv_test</span>
+
+
+<a href="#pattern_feedback_tool.doit_tasks.task__priv_test" class="headerlink" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">task__priv_test</span><span class="p">()</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Run all tests using Pytest.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th><b>RETURNS</b></th>
+        <th><b>DESCRIPTION</b></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              <code>DoitTask</code>
+          </td>
+          <td class="doc-returns-details">
+            <p>doit task</p>
+              <p>
+                <span class="doc-returns-annotation">
+                  <b>TYPE:</b>
+                    <code><span title="calcipy.doit_tasks.doit_globals.DoitTask">DoitTask</span></code>
+                </span>
+              </p>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="121 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="122 "></span><span class="k">def</span> <span class="nf">task__priv_test</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="123 "></span>    <span class="sd">&quot;&quot;&quot;Run all tests using Pytest.</span>
+<span class="linenos" data-linenos="124 "></span>
+<span class="linenos" data-linenos="125 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="126 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="127 "></span>
+<span class="linenos" data-linenos="128 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="129 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
+<span class="linenos" data-linenos="130 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> pytest tests </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_PYTEST</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+<span class="linenos" data-linenos="131 "></span>    <span class="p">])</span>
+</code></pre></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
 <h3 id="pattern_feedback_tool.doit_tasks.task__priv_update" class="doc doc-heading">
         <span class="doc doc-object-name doc-function-name">task__priv_update</span>
 
@@ -1470,6 +1559,64 @@
 
 
 
+<h3 id="pattern_feedback_tool.doit_tasks.task__priv_watch_changes" class="doc doc-heading">
+        <span class="doc doc-object-name doc-function-name">task__priv_watch_changes</span>
+
+
+<a href="#pattern_feedback_tool.doit_tasks.task__priv_watch_changes" class="headerlink" title="Permanent link">⚓︎</a></h3>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">task__priv_watch_changes</span><span class="p">()</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Re-run tests on changes with pytest watcher.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th><b>RETURNS</b></th>
+        <th><b>DESCRIPTION</b></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+              <code>DoitTask</code>
+          </td>
+          <td class="doc-returns-details">
+            <p>doit task</p>
+              <p>
+                <span class="doc-returns-annotation">
+                  <b>TYPE:</b>
+                    <code><span title="calcipy.doit_tasks.doit_globals.DoitTask">DoitTask</span></code>
+                </span>
+              </p>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="280 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="281 "></span><span class="k">def</span> <span class="nf">task__priv_watch_changes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="282 "></span>    <span class="sd">&quot;&quot;&quot;Re-run tests on changes with pytest watcher.</span>
+<span class="linenos" data-linenos="283 "></span>
+<span class="linenos" data-linenos="284 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="285 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="286 "></span>
+<span class="linenos" data-linenos="287 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="288 "></span>    <span class="k">return</span> <span class="n">_build_ptw</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</code></pre></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
 <h3 id="pattern_feedback_tool.doit_tasks.task_build_diagrams" class="doc doc-heading">
         <span class="doc doc-object-name doc-function-name">task_build_diagrams</span>
 
@@ -1509,23 +1656,23 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="236 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="237 "></span><span class="k">def</span> <span class="nf">task_build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="238 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams.</span>
-<span class="linenos" data-linenos="239 "></span>
-<span class="linenos" data-linenos="240 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="241 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="242 "></span>
-<span class="linenos" data-linenos="243 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="244 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span>
-<span class="linenos" data-linenos="245 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="n">task_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
-<span class="linenos" data-linenos="246 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">task_dir</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
-<span class="linenos" data-linenos="247 "></span>
-<span class="linenos" data-linenos="248 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="249 "></span>        <span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">()),</span>
-<span class="linenos" data-linenos="250 "></span>        <span class="sa">f</span><span class="s1">&#39;poetry run pyreverse </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1"> --output png --output-directory=</span><span class="si">{</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-<span class="linenos" data-linenos="251 "></span>        <span class="p">(</span><span class="n">_log_pyreverse_file_locations</span><span class="p">,</span> <span class="p">(</span><span class="n">diagrams_dir</span><span class="p">,)),</span>
-<span class="linenos" data-linenos="252 "></span>    <span class="p">])</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="249 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="250 "></span><span class="k">def</span> <span class="nf">task_build_diagrams</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="251 "></span>    <span class="sd">&quot;&quot;&quot;Create shareable code diagrams.</span>
+<span class="linenos" data-linenos="252 "></span>
+<span class="linenos" data-linenos="253 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="254 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="255 "></span>
+<span class="linenos" data-linenos="256 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="257 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span>
+<span class="linenos" data-linenos="258 "></span>    <span class="n">package</span> <span class="o">=</span> <span class="n">task_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos="259 "></span>    <span class="n">diagrams_dir</span> <span class="o">=</span> <span class="n">task_dir</span> <span class="o">/</span> <span class="s1">&#39;diagrams&#39;</span>
+<span class="linenos" data-linenos="260 "></span>
+<span class="linenos" data-linenos="261 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
+<span class="linenos" data-linenos="262 "></span>        <span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">()),</span>
+<span class="linenos" data-linenos="263 "></span>        <span class="sa">f</span><span class="s1">&#39;poetry run pyreverse </span><span class="si">{</span><span class="n">package</span><span class="si">}</span><span class="s1"> --output png --output-directory=</span><span class="si">{</span><span class="n">diagrams_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="264 "></span>        <span class="p">(</span><span class="n">_log_pyreverse_file_locations</span><span class="p">,</span> <span class="p">(</span><span class="n">diagrams_dir</span><span class="p">,)),</span>
+<span class="linenos" data-linenos="265 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
   </div>
@@ -1575,16 +1722,16 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="201 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="202 "></span><span class="k">def</span> <span class="nf">task_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="203 "></span>    <span class="sd">&quot;&quot;&quot;Run code quality checks.</span>
-<span class="linenos" data-linenos="204 "></span>
-<span class="linenos" data-linenos="205 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="206 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="207 "></span>
-<span class="linenos" data-linenos="208 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="209 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
-<span class="linenos" data-linenos="210 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">(</span><span class="n">_lint_python</span><span class="p">(</span><span class="n">task_dir</span><span class="p">))</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="214 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="215 "></span><span class="k">def</span> <span class="nf">task_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="216 "></span>    <span class="sd">&quot;&quot;&quot;Run code quality checks.</span>
+<span class="linenos" data-linenos="217 "></span>
+<span class="linenos" data-linenos="218 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="219 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="220 "></span>
+<span class="linenos" data-linenos="221 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="222 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
+<span class="linenos" data-linenos="223 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">(</span><span class="n">_lint_python</span><span class="p">(</span><span class="n">task_dir</span><span class="p">))</span>
 </code></pre></div>
       </details>
   </div>
@@ -1634,18 +1781,18 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="286 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="287 "></span><span class="k">def</span> <span class="nf">task_check_types</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="288 "></span>    <span class="sd">&quot;&quot;&quot;Run type annotation checks with MyPy.</span>
-<span class="linenos" data-linenos="289 "></span>
-<span class="linenos" data-linenos="290 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="291 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="292 "></span>
-<span class="linenos" data-linenos="293 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="294 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
-<span class="linenos" data-linenos="295 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="296 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> mypy </span><span class="si">{</span><span class="n">task_dir</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_MYPY</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="297 "></span>    <span class="p">])</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="315 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="316 "></span><span class="k">def</span> <span class="nf">task_check_types</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="317 "></span>    <span class="sd">&quot;&quot;&quot;Run type annotation checks with MyPy.</span>
+<span class="linenos" data-linenos="318 "></span>
+<span class="linenos" data-linenos="319 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="320 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="321 "></span>
+<span class="linenos" data-linenos="322 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="323 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
+<span class="linenos" data-linenos="324 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
+<span class="linenos" data-linenos="325 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> mypy </span><span class="si">{</span><span class="n">task_dir</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_MYPY</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+<span class="linenos" data-linenos="326 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
   </div>
@@ -1818,18 +1965,18 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="121 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="122 "></span><span class="k">def</span> <span class="nf">task_test</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="123 "></span>    <span class="sd">&quot;&quot;&quot;Run all tests marked with &#39;tasks&#39; using Pytest.</span>
-<span class="linenos" data-linenos="124 "></span>
-<span class="linenos" data-linenos="125 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="126 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="127 "></span>
-<span class="linenos" data-linenos="128 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="129 "></span>    <span class="n">pytest_args</span> <span class="o">=</span> <span class="s1">&#39;--disable-warnings -m tasks&#39;</span>
-<span class="linenos" data-linenos="130 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="131 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> pytest tests </span><span class="si">{</span><span class="n">pytest_args</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_PYTEST</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
-<span class="linenos" data-linenos="132 "></span>    <span class="p">])</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="134 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="135 "></span><span class="k">def</span> <span class="nf">task_test</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="136 "></span>    <span class="sd">&quot;&quot;&quot;Run all tests marked with &#39;tasks&#39; using Pytest.</span>
+<span class="linenos" data-linenos="137 "></span>
+<span class="linenos" data-linenos="138 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="139 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="140 "></span>
+<span class="linenos" data-linenos="141 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="142 "></span>    <span class="n">pytest_args</span> <span class="o">=</span> <span class="s1">&#39;--disable-warnings -m tasks&#39;</span>
+<span class="linenos" data-linenos="143 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
+<span class="linenos" data-linenos="144 "></span>        <span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> pytest tests </span><span class="si">{</span><span class="n">pytest_args</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_PYTEST</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span>
+<span class="linenos" data-linenos="145 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
   </div>
@@ -1850,7 +1997,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>Re-run tests on changes with pytest watcher.</p>
+      <p>Re-run tests tagged with tasks on changes with pytest watcher.</p>
 
   <table>
     <thead>
@@ -1879,19 +2026,15 @@
 
       <details class="quote">
         <summary>Source code in <code>pattern_feedback_tool/doit_tasks.py</code></summary>
-        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="258 "></span><span class="nd">@beartype</span>
-<span class="linenos" data-linenos="259 "></span><span class="k">def</span> <span class="nf">task_watch_changes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
-<span class="linenos" data-linenos="260 "></span>    <span class="sd">&quot;&quot;&quot;Re-run tests on changes with pytest watcher.</span>
-<span class="linenos" data-linenos="261 "></span>
-<span class="linenos" data-linenos="262 "></span><span class="sd">    Returns:</span>
-<span class="linenos" data-linenos="263 "></span><span class="sd">        DoitTask: doit task</span>
-<span class="linenos" data-linenos="264 "></span>
-<span class="linenos" data-linenos="265 "></span><span class="sd">    &quot;&quot;&quot;</span>
-<span class="linenos" data-linenos="266 "></span>    <span class="n">task_dir</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">task_dir</span><span class="p">()</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span>
-<span class="linenos" data-linenos="267 "></span>    <span class="k">return</span> <span class="p">{</span>
-<span class="linenos" data-linenos="268 "></span>        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Interactive</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">run_mod</span><span class="p">()</span><span class="si">}</span><span class="s1"> ptw &quot;</span><span class="si">{</span><span class="n">task_dir</span><span class="si">}</span><span class="s1">&quot; </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">ARGS_PYTEST</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)],</span>
-<span class="linenos" data-linenos="269 "></span>        <span class="s1">&#39;verbosity&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-<span class="linenos" data-linenos="270 "></span>    <span class="p">}</span>
+        <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="291 "></span><span class="nd">@beartype</span>
+<span class="linenos" data-linenos="292 "></span><span class="k">def</span> <span class="nf">task_watch_changes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">DoitTask</span><span class="p">:</span>
+<span class="linenos" data-linenos="293 "></span>    <span class="sd">&quot;&quot;&quot;Re-run tests tagged with tasks on changes with pytest watcher.</span>
+<span class="linenos" data-linenos="294 "></span>
+<span class="linenos" data-linenos="295 "></span><span class="sd">    Returns:</span>
+<span class="linenos" data-linenos="296 "></span><span class="sd">        DoitTask: doit task</span>
+<span class="linenos" data-linenos="297 "></span>
+<span class="linenos" data-linenos="298 "></span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="299 "></span>    <span class="k">return</span> <span class="n">_build_ptw</span><span class="p">(</span><span class="s1">&#39;--disable-warnings -m tasks&#39;</span><span class="p">)</span>
 </code></pre></div>
       </details>
   </div>
@@ -2101,7 +2244,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "toc.autohide"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
       
