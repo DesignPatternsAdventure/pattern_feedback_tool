@@ -1,6 +1,8 @@
 [build-system]
-requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+requires = [
+  "poetry-core",
+]
 
 [tool.calcipy]
 ignore_patterns = [
@@ -53,14 +55,14 @@ classifiers = [
 python = "^3.10.5"
 absolufy-imports = ">=0.3.0"
 beartype = ">=0.11.0"
-better-exceptions = ">=0.3.4"
+better-exceptions = ">=0.3.3"
 calcipy = ">=0.20.1"
 code2flow = ">=2.5.0"
 docformatter = ">=1.5.0"
 doit = ">=0.34.2"
 flake8 = ">=5.0.4"
 flake8-bandit = ">=3.0.0"
-flake8-black = ">=0.3.4"
+flake8-black = ">=0.3.3"
 flake8-blind-except = ">=0.2.1"
 flake8-breakpoint = ">=1.1.0"
 flake8-broken-line = ">=0.4.0"
