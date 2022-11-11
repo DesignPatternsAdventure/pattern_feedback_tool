@@ -2,6 +2,12 @@
 
 ### Fix
 
+- rufix: resolve pyreverse path and ptw is poetry-only
+
+## 0.3.5 (2022-11-10)
+
+### Fix
+
 - another issue with cz bump...
 
 ## 0.3.4 (2022-11-10)
