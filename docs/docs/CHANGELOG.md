@@ -2,6 +2,17 @@
 
 ### Fix
 
+- export dev dependencies
+- add private tasks for ptw and pytest
+
+### Refactor
+
+- switch from _priv to just an underscore
+
+## 0.3.2 (2022-11-10)
+
+### Fix
+
 - another issue with cz and the lock
 
 ## 0.3.1 (2022-11-10)
