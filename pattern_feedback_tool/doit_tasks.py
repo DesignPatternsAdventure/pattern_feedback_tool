@@ -152,7 +152,7 @@ def task_test() -> DoitTask:
 
 
 @beartype
-def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> None:  # noqa: CCR001
+def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> bool:  # noqa: CCR001
     """Merge pylint and flake8 linting errors for a combined report.
 
     Args:
@@ -163,9 +163,11 @@ def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> None:  
         RuntimeError: if flake8 and/or pylint log files contain any errors
 
     """
+    no_errors = True
     flake8_logs = flake8_log_path.read_text().strip()
     pylint_logs = pylint_log_path.read_text().strip()
     if flake8_logs or pylint_logs:
+        no_errors = False
         flake8_parsed = parse_flake8_logs(flake8_logs)
         pylint_parsed = parse_pylint_json_logs(pylint_logs)
         console = Console()
@@ -173,6 +175,7 @@ def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> None:  
 
     if_found_unlink(flake8_log_path)
     if_found_unlink(pylint_log_path)
+    return no_errors  # noqa: R504
 
 
 @beartype
@@ -285,7 +288,7 @@ def _build_ptw(pytest_args: str) -> DoitTask:
     return {
         'actions': [
             (print_warning, ()),
-            Interactive(f'poetry run ptw "{task_dir}" {pytest_args} {SETTINGS.ARGS_PYTEST}')
+            Interactive(f'poetry run ptw "{task_dir}" {pytest_args} {SETTINGS.ARGS_PYTEST}'),
         ],
         'verbosity': 2,
     }
