@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run ptw \"game/tasks\" "
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m ptw \"game/tasks\" "
     ],
     "verbosity": 2
   }

@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run mypy game "
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m mypy game "
     ],
     "title": "<function _show_cmd(..)>",
     "verbosity": 2

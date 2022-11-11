@@ -1,3 +1,10 @@
+## Unreleased
+
+### Feat
+
+- make the python executable configurable
+- add quieter user_task action and merge upgrade task
+
 ## 0.2.3 (2022-11-09)
 
 ### Fix

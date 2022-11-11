@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: poetry run python -m game.play"
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m -m game.play"
     ],
     "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2

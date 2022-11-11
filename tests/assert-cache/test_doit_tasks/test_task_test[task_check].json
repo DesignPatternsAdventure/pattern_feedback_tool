@@ -16,14 +16,14 @@
           "--/.pft_flake8.log"
         ]
       ],
-      "Cmd: poetry run flake8 game/tasks --config=.flake8 --output-file=.pft_flake8.log --color=never --exit-zero",
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m flake8 game/tasks --output-file=.pft_flake8.log --config=.flake8 --color=never --exit-zero",
       [
         "<function if_found_unlink(..)>",
         [
           "--/.pft_pylint.json"
         ]
       ],
-      "Cmd: poetry run pylint game/tasks --rcfile=.pylintrc --output-format=json --output=.pft_pylint.json --exit-zero",
+      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.venv/bin/python -m pylint game/tasks --output=.pft_pylint.json --rcfile=.pylintrc --output-format=json --exit-zero",
       [
         "<function _merge_linting_logs(..)>",
         [

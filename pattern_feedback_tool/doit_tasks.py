@@ -1,8 +1,9 @@
 """DoIt tasks."""
 
+import sys
 from collections import defaultdict
 from collections.abc import Iterable
-from functools import partial
+from functools import lru_cache, partial
 from pathlib import Path
 
 from beartype import beartype
@@ -15,6 +16,12 @@ from rich.console import Console
 
 from .lint_parsers import display_lint_logs, parse_flake8_logs, parse_pylint_json_logs
 from .settings import SETTINGS
+
+
+@lru_cache(maxsize=1)
+def run_mod() -> str:
+    """Return the currently active Python."""
+    return f'{sys.executable} -m'
 
 
 @beartype
@@ -55,8 +62,6 @@ def task__priv_update() -> DoitTask:
 
 # ================== Core Interaction Tasks ==================
 
-# FIXME: Create a UserTask where the output is more clear if success/fail
-
 
 @beartype
 def task_play() -> DoitTask:
@@ -67,7 +72,7 @@ def task_play() -> DoitTask:
 
     """
     return user_task([
-        Interactive('poetry run python -m game.play'),
+        Interactive(f'{run_mod()} -m game.play'),
     ])
 
 
@@ -82,26 +87,24 @@ def task__priv_format() -> DoitTask:
         DoitTask: doit task
 
     """
-    run = 'poetry run'
-    run_mod = f'{run} python -m'
     paths = 'tests game ./dodo.py'
     cwd = Path.cwd()
     tracked_files = [*(cwd / 'game').rglob('*.py')] + [*(cwd / 'tests').rglob('*.py')] + [cwd / 'dodo.py']
     file_paths = ' '.join([f'"{pth.relative_to(cwd).as_posix()}"' for pth in tracked_files])
     docfmt_args = '--blank --close-quotes-on-newline --in-place --wrap-summaries=120 --wrap-descriptions=120'
     return debug_task([
-        f'{run_mod} black {paths}',
-        f'{run} pyupgrade {file_paths} --py310-plus --keep-runtime-typing --exit-zero',
-        f'{run_mod} unimport {paths} --include-star-import --remove',
-        f'{run} absolufy-imports {file_paths} --never',
-        f'{run_mod} isort {paths}',
-        f'{run_mod} docformatter {file_paths} {docfmt_args}',
+        f'{run_mod()} black {paths} --quiet',
+        f'{run_mod()} pyupgrade {file_paths} --py310-plus --keep-runtime-typing --exit-zero',
+        f'{run_mod()} unimport {paths} --include-star-import --remove',
+        f'{run_mod()} absolufy-imports {file_paths} --never',
+        f'{run_mod()} isort {paths}',
+        f'{run_mod()} docformatter {file_paths} {docfmt_args}',
     ])
 
 
 @beartype
 def task_format() -> DoitTask:
-    """Format code with black.
+    """Format code with black and isort.
 
     Returns:
         DoitTask: doit task
@@ -109,22 +112,23 @@ def task_format() -> DoitTask:
     """
     task_dir = SETTINGS.task_dir().as_posix()
     return user_task([
-        Interactive(f'poetry run black "{task_dir}"'),
-        Interactive(f'poetry run unimport "{task_dir}" --remove'),
-        Interactive(f'poetry run isort "{task_dir}"'),
+        Interactive(f'{run_mod()} black "{task_dir}"'),
+        Interactive(f'{run_mod()} unimport "{task_dir}" --remove'),
+        Interactive(f'{run_mod()} isort "{task_dir}"'),
     ])
 
 
 @beartype
 def task_test() -> DoitTask:
-    """Run tests with Pytest.
+    """Run all tests marked with 'tasks' using Pytest.
 
     Returns:
         DoitTask: doit task
 
     """
+    pytest_args = '--disable-warnings -m tasks'
     return user_task([
-        Interactive(f'poetry run pytest tests {SETTINGS.ARGS_PYTEST}'),
+        Interactive(f'{run_mod()} pytest tests {pytest_args} {SETTINGS.ARGS_PYTEST}'),
     ])
 
 
@@ -163,18 +167,20 @@ def _lint_python(paths: str) -> list[DoitAction]:
         list[DoitAction]: doit task
 
     """
-
     flake8_log_path = SETTINGS.PROJ_DIR / '.pft_flake8.log'
     pylint_log_path = SETTINGS.PROJ_DIR / '.pft_pylint.json'
+
+    flake8_args = '--config=.flake8 --color=never --exit-zero'
+    pylint_args = '--rcfile=.pylintrc --output-format=json --exit-zero'
 
     return [
         (if_found_unlink, (flake8_log_path,)),
         Interactive(
-            f'poetry run flake8 {paths} --config=.flake8 --output-file={flake8_log_path.as_posix()} --color=never --exit-zero',
+            f'{run_mod()} flake8 {paths} --output-file={flake8_log_path.as_posix()} {flake8_args}',
         ),
         (if_found_unlink, (pylint_log_path,)),
         Interactive(
-            f'poetry run pylint {paths} --rcfile=.pylintrc --output-format=json --output={pylint_log_path.as_posix()} --exit-zero',
+            f'{run_mod()} pylint {paths} --output={pylint_log_path.as_posix()} {pylint_args}',
         ),
         (_merge_linting_logs, (flake8_log_path, pylint_log_path)),
     ]
@@ -207,7 +213,7 @@ def task_check() -> DoitTask:
 @beartype
 def _log_pyreverse_file_locations(diagrams_dir: Path) -> None:
     console = Console()
-    console.print(f'Created code diagrams in {diagrams_dir}', style="bold green")
+    console.print(f'Created code diagrams in {diagrams_dir}', style='bold green')
 
 
 @beartype
@@ -259,7 +265,7 @@ def task_watch_changes() -> DoitTask:
     """
     task_dir = SETTINGS.task_dir().as_posix()
     return {
-        'actions': [Interactive(f'poetry run ptw "{task_dir}" {SETTINGS.ARGS_PYTEST}')],
+        'actions': [Interactive(f'{run_mod()} ptw "{task_dir}" {SETTINGS.ARGS_PYTEST}')],
         'verbosity': 2,
     }
 
@@ -273,7 +279,7 @@ def task__priv_check_types() -> DoitTask:
 
     """
     return debug_task([
-        Interactive(f'poetry run mypy game {SETTINGS.ARGS_MYPY}'),
+        Interactive(f'{run_mod()} mypy game {SETTINGS.ARGS_MYPY}'),
     ])
 
 
@@ -287,7 +293,7 @@ def task_check_types() -> DoitTask:
     """
     task_dir = SETTINGS.task_dir().as_posix()
     return user_task([
-        Interactive(f'poetry run mypy {task_dir} {SETTINGS.ARGS_MYPY}'),
+        Interactive(f'{run_mod()} mypy {task_dir} {SETTINGS.ARGS_MYPY}'),
     ])
 
 
