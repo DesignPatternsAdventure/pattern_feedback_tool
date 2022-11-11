@@ -72,7 +72,7 @@ def task_play() -> DoitTask:
 
     """
     return user_task([
-        Interactive(f'{run_mod()} -m game.play'),
+        Interactive(f'{run_mod()} game.play'),
     ])
 
 
@@ -230,8 +230,17 @@ def _log_pyreverse_file_locations(diagrams_dir: Path) -> None:
 
 
 @beartype
-def task___build_diagrams() -> DoitTask:
-    """Create shareable code diagrams for entire project.
+def __build_diagrams(package: str, diagrams_dir: Path) -> DoitTask:
+    return debug_task([
+        (partial(diagrams_dir.mkdir, exist_ok=True), ()),
+        f'{run_mod()} pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
+        (_log_pyreverse_file_locations, (diagrams_dir,)),
+    ])
+
+
+@beartype
+def task__build_diagrams() -> DoitTask:
+    """Create shareable code diagrams for the entire game folder.
 
     Returns:
         DoitTask: doit task
@@ -239,11 +248,7 @@ def task___build_diagrams() -> DoitTask:
     """
     package = 'game'
     diagrams_dir = Path(package) / 'diagrams'
-    return debug_task([
-        (partial(diagrams_dir.mkdir, exist_ok=True), ()),
-        f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
-        (_log_pyreverse_file_locations, (diagrams_dir,)),
-    ])
+    return __build_diagrams(package, diagrams_dir)
 
 
 @beartype
@@ -257,12 +262,7 @@ def task_build_diagrams() -> DoitTask:
     task_dir = SETTINGS.task_dir()
     package = task_dir.as_posix().replace('/', '.')
     diagrams_dir = task_dir / 'diagrams'
-
-    return user_task([
-        (partial(diagrams_dir.mkdir, exist_ok=True), ()),
-        f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
-        (_log_pyreverse_file_locations, (diagrams_dir,)),
-    ])
+    return __build_diagrams(package, diagrams_dir)
 
 
 # ================== Optional Tasks ==================
