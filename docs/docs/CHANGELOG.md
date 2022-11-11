@@ -1,3 +1,9 @@
+## Unreleased
+
+### Fix
+
+- add missing lxml dependency
+
 ## 0.3.8 (2022-11-10)
 
 ### Fix
