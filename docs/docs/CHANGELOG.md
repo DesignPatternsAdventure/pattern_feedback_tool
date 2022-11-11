@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Fix
+
+- correct improper bump to ptw
+
+## 0.3.0 (2022-11-10)
+
 ### Feat
 
 - make the python executable configurable
