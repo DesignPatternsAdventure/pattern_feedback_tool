@@ -2,6 +2,12 @@
 
 ### Fix
 
+- resolve issues running play and build_diagrams
+
+## 0.3.3 (2022-11-10)
+
+### Fix
+
 - export dev dependencies
 - add private tasks for ptw and pytest
 
