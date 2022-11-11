@@ -1,5 +1,7 @@
 """DoIt tasks."""
 
+from collections import defaultdict
+from collections.abc import Iterable
 from functools import partial
 from pathlib import Path
 
@@ -14,7 +16,46 @@ from rich.console import Console
 from .lint_parsers import display_lint_logs, parse_flake8_logs, parse_pylint_json_logs
 from .settings import SETTINGS
 
+
+@beartype
+def user_task(actions: Iterable[DoitAction], verbosity: int = 2) -> DoitTask:
+    """Show reduced output for user-facing commands.
+
+    Args:
+        actions: list of doit actions
+        verbosity: 2 is maximum, while 0 is deactivated. Default is 2
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    task: DoitTask = defaultdict(list)
+    task['actions'] = actions
+    task['title'] = lambda _task: ''
+    task['verbosity'] = verbosity
+    return task
+
+
+@beartype
+def task__priv_update() -> DoitTask:
+    """Run update operations and update the requirements file.
+
+    Returns:
+        DoitTask: DoIt task
+
+    """
+    return debug_task(
+        [
+            Interactive('poetry lock --no-update'),
+            Interactive(
+                'poetry export --format=requirements.txt --output=requirements.txt --without-hashes',
+            ),
+        ],
+    )
+
 # ================== Core Interaction Tasks ==================
+
+# FIXME: Create a UserTask where the output is more clear if success/fail
 
 
 @beartype
@@ -25,7 +66,7 @@ def task_play() -> DoitTask:
         DoitTask: doit task
 
     """
-    return debug_task([
+    return user_task([
         Interactive('poetry run python -m game.play'),
     ])
 
@@ -34,7 +75,7 @@ def task_play() -> DoitTask:
 
 
 @beartype
-def task_format_all() -> DoitTask:
+def task__priv_format() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
@@ -67,7 +108,7 @@ def task_format() -> DoitTask:
 
     """
     task_dir = SETTINGS.task_dir().as_posix()
-    return debug_task([
+    return user_task([
         Interactive(f'poetry run black "{task_dir}"'),
         Interactive(f'poetry run unimport "{task_dir}" --remove'),
         Interactive(f'poetry run isort "{task_dir}"'),
@@ -82,7 +123,7 @@ def task_test() -> DoitTask:
         DoitTask: doit task
 
     """
-    return debug_task([
+    return user_task([
         Interactive(f'poetry run pytest tests {SETTINGS.ARGS_PYTEST}'),
     ])
 
@@ -140,7 +181,7 @@ def _lint_python(paths: str) -> list[DoitAction]:
 
 
 @beartype
-def task_check_all() -> DoitTask:
+def task__priv_check() -> DoitTask:
     """Format all project code and not just the tasks.
 
     Returns:
@@ -160,7 +201,30 @@ def task_check() -> DoitTask:
 
     """
     task_dir = SETTINGS.task_dir().as_posix()
-    return debug_task(_lint_python(task_dir))
+    return user_task(_lint_python(task_dir))
+
+
+@beartype
+def _log_pyreverse_file_locations(diagrams_dir: Path) -> None:
+    console = Console()
+    console.print(f'Created code diagrams in {diagrams_dir}', style="bold green")
+
+
+@beartype
+def task__priv_build_diagrams() -> DoitTask:
+    """Create shareable code diagrams for entire project.
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    package = 'game'
+    diagrams_dir = Path(package) / 'diagrams'
+    return debug_task([
+        (partial(diagrams_dir.mkdir, exist_ok=True), ()),
+        f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
+        (_log_pyreverse_file_locations, (diagrams_dir,)),
+    ])
 
 
 @beartype
@@ -175,14 +239,10 @@ def task_build_diagrams() -> DoitTask:
     package = task_dir.as_posix().replace('/', '.')
     diagrams_dir = task_dir / 'diagrams'
 
-    def log_pyreverse_file_locations() -> None:
-        console = Console()
-        console.print(f'Created code diagrams in {diagrams_dir}')
-
-    return debug_task([
+    return user_task([
         (partial(diagrams_dir.mkdir, exist_ok=True), ()),
         f'poetry run pyreverse {package} --output png --output-directory={diagrams_dir.as_posix()}',
-        (log_pyreverse_file_locations, ()),
+        (_log_pyreverse_file_locations, (diagrams_dir,)),
     ])
 
 
@@ -205,6 +265,19 @@ def task_watch_changes() -> DoitTask:
 
 
 @beartype
+def task__priv_check_types() -> DoitTask:
+    """Run type annotation checks with MyPy against the entire package.
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    return debug_task([
+        Interactive(f'poetry run mypy game {SETTINGS.ARGS_MYPY}'),
+    ])
+
+
+@beartype
 def task_check_types() -> DoitTask:
     """Run type annotation checks with MyPy.
 
@@ -213,7 +286,7 @@ def task_check_types() -> DoitTask:
 
     """
     task_dir = SETTINGS.task_dir().as_posix()
-    return debug_task([
+    return user_task([
         Interactive(f'poetry run mypy {task_dir} {SETTINGS.ARGS_MYPY}'),
     ])
 

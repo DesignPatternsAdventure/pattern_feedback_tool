@@ -14,7 +14,7 @@
       "Cmd: poetry run unimport \"game/tasks\" --remove",
       "Cmd: poetry run isort \"game/tasks\""
     ],
-    "title": "<function _show_cmd(..)>",
+    "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2
   }
 }

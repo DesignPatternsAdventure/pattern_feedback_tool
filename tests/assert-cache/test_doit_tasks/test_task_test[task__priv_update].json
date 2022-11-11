@@ -1,0 +1,19 @@
+{
+  "_info": [
+    {
+      "func_args": {
+        "task": "<function task__priv_update(..)>"
+      },
+      "test_file": "test_doit_tasks.py",
+      "test_name": "test_task_test"
+    }
+  ],
+  "_json": {
+    "actions": [
+      "Cmd: poetry lock --no-update",
+      "Cmd: poetry export --format=requirements.txt --output=requirements.txt --without-hashes"
+    ],
+    "title": "<function _show_cmd(..)>",
+    "verbosity": 2
+  }
+}

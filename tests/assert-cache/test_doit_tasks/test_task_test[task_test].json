@@ -12,7 +12,7 @@
     "actions": [
       "Cmd: poetry run pytest tests "
     ],
-    "title": "<function _show_cmd(..)>",
+    "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2
   }
 }

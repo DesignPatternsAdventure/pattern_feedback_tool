@@ -16,11 +16,13 @@
       ],
       "poetry run pyreverse game.tasks --output png --output-directory=game/tasks/diagrams",
       [
-        "<function task_build_diagrams.<locals>.log_pyreverse_file_locations(..)>",
-        []
+        "<function _log_pyreverse_file_locations(..)>",
+        [
+          "--/game/tasks/diagrams"
+        ]
       ]
     ],
-    "title": "<function _show_cmd(..)>",
+    "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2
   }
 }
