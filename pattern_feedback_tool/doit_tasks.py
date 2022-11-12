@@ -102,7 +102,7 @@ def task__format() -> DoitTask:
         f'{run_mod()} black {paths} --quiet',
         f'{run_mod()} pyupgrade {file_paths} --py310-plus --keep-runtime-typing --exit-zero',
         f'{run_mod()} unimport {paths} --include-star-import --remove',
-        f'{run_mod()} absolufy-imports {file_paths} --never',
+        f'{smart_exec("absolufy-imports")} {file_paths} --never',
         f'{run_mod()} isort {paths}',
         f'{run_mod()} docformatter {file_paths} {docfmt_args}',
     ])
@@ -132,7 +132,7 @@ def task__test() -> DoitTask:
         DoitTask: doit task
 
     """
-    return user_task([
+    return debug_task([
         Interactive(f'{run_mod()} pytest tests {SETTINGS.ARGS_PYTEST}'),
     ])
 

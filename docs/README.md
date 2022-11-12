@@ -4,7 +4,13 @@ Design Pattern Feedback Tool
 
 ## Installation
 
-This package is built only for playing [the DesignPatternsAdventure game][dpa_game_link]
+This package is built only for playing [the DesignPatternsAdventure/game][dpa_game_link]
+
+For developers working on `game` there are hidden `doit` tasks to help with development:
+
+```sh
+poetry run doit --continue _format _test _check _check_types _update _build_diagrams
+```
 
 ## Usage
 
