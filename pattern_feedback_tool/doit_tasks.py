@@ -167,11 +167,12 @@ def _merge_linting_logs(flake8_log_path: Path, pylint_log_path: Path) -> bool:  
     flake8_logs = flake8_log_path.read_text().strip()
     pylint_logs = pylint_log_path.read_text().strip()
     if flake8_logs or pylint_logs:
-        no_errors = False
         flake8_parsed = parse_flake8_logs(flake8_logs)
         pylint_parsed = parse_pylint_json_logs(pylint_logs)
-        console = Console()
-        display_lint_logs(console, flake8_parsed + pylint_parsed)
+        if parsed_errors := flake8_parsed + pylint_parsed:
+            no_errors = False
+            console = Console()
+            display_lint_logs(console, parsed_errors)
 
     if_found_unlink(flake8_log_path)
     if_found_unlink(pylint_log_path)
