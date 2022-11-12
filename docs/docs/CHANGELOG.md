@@ -2,6 +2,12 @@
 
 ### Fix
 
+- check length of errors and not just log file
+
+## 0.3.9 (2022-11-11)
+
+### Fix
+
 - add missing lxml dependency
 
 ## 0.3.8 (2022-11-10)
