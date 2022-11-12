@@ -2,6 +2,12 @@
 
 ### Fix
 
+- resolve issues and document the hidden tasks
+
+## 0.3.10 (2022-11-12)
+
+### Fix
+
 - check length of errors and not just log file
 
 ## 0.3.9 (2022-11-11)
