@@ -50,12 +50,12 @@ poetry run doit run lock document deploy_docs publish
 | File                                    |   Statements |   Missing |   Excluded | Coverage   |
 |-----------------------------------------|--------------|-----------|------------|------------|
 | `pattern_feedback_tool/__init__.py`     |            5 |         0 |          0 | 100.0%     |
-| `pattern_feedback_tool/doit_tasks.py`   |          125 |        16 |          0 | 87.2%      |
+| `pattern_feedback_tool/doit_tasks.py`   |          139 |        18 |          0 | 87.1%      |
 | `pattern_feedback_tool/graphics.py`     |           15 |         0 |          0 | 100.0%     |
 | `pattern_feedback_tool/lint_parsers.py` |           64 |         0 |          0 | 100.0%     |
 | `pattern_feedback_tool/linters.py`      |           17 |         1 |          0 | 94.1%      |
 | `pattern_feedback_tool/settings.py`     |           28 |         2 |          0 | 92.9%      |
-| **Totals**                              |          254 |        19 |          0 | 92.5%      |
+| **Totals**                              |          268 |        21 |          0 | 92.2%      |
 
-Generated on: 2022-11-11
+Generated on: 2022-11-13
 <!-- {cte} -->

@@ -1,3 +1,10 @@
+## Unreleased
+
+### Fix
+
+- use relative path for the executable
+- add missing reset_map task
+
 ## 0.3.11 (2022-11-12)
 
 ### Fix
