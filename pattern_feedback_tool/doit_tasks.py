@@ -3,6 +3,7 @@
 import sys
 from collections import defaultdict
 from collections.abc import Iterable
+from contextlib import suppress
 from functools import lru_cache, partial
 from pathlib import Path
 
@@ -19,15 +20,27 @@ from .settings import SETTINGS
 
 
 @lru_cache(maxsize=1)
-def smart_exec(executable: str) -> str:
-    """Assumes executable is in the same directory as Python."""
-    return str(Path(sys.executable).parent / executable)
+@beartype
+def resolve_python() -> Path:
+    """Resolve the user's Python path based on `sys`."""
+    python_path = Path(sys.executable)
+    with suppress(ValueError):
+        return python_path.relative_to(Path.cwd())
+    return python_path
 
 
 @lru_cache(maxsize=1)
+@beartype
+def smart_exec(executable: str) -> str:
+    """Assumes executable is in the same directory as Python."""
+    return str(resolve_python().parent / executable)
+
+
+@lru_cache(maxsize=1)
+@beartype
 def run_mod() -> str:
     """Return the currently active Python."""
-    return f'{sys.executable} -m'
+    return f'{resolve_python()} -m'
 
 
 @beartype

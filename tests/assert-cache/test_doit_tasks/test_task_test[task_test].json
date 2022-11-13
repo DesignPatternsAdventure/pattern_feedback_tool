@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "Cmd: /Users/kyleking/Developer/edtech_cs6460/pattern_feedback_tool/.nox/coverage-3-10/bin/python -m pytest tests --disable-warnings -m tasks "
+      "Cmd: .nox/coverage-3-10/bin/python -m pytest tests --disable-warnings -m tasks "
     ],
     "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2
