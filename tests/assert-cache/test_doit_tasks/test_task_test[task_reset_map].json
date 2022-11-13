@@ -1,0 +1,18 @@
+{
+  "_info": [
+    {
+      "func_args": {
+        "task": "<function task_reset_map(..)>"
+      },
+      "test_file": "test_doit_tasks.py",
+      "test_name": "test_task_test"
+    }
+  ],
+  "_json": {
+    "actions": [
+      "rm -f game/assets/maps/player_save_file game/assets/maps/map_save_file.json"
+    ],
+    "title": "<function user_task.<locals>.<lambda>(..)>",
+    "verbosity": 2
+  }
+}

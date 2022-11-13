@@ -279,6 +279,19 @@ def task_build_diagrams() -> DoitTask:
 
 
 @beartype
+def task_reset_map() -> DoitTask:
+    """Reset the map to the initial state.
+
+    Returns:
+        DoitTask: doit task
+
+    """
+    return user_task([
+        'rm -f game/assets/maps/player_save_file game/assets/maps/map_save_file.json',
+    ])
+
+
+@beartype
 def _build_ptw(pytest_args: str) -> DoitTask:
     """Note: when not installed with poetry: `No such file or directory: 'pytest'`."""
     def print_warning() -> None:
