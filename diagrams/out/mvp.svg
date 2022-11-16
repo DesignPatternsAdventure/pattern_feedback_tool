@@ -22,7 +22,7 @@ reverse link NonLoanableItem to ReferenceBook--><g id="link_NonLoanableItem_Refe
 reverse link NonLoanableItem to Magazine--><g id="link_NonLoanableItem_Magazine"><path d="M889.25,394.69 C889.25,394.69 889.25,499 889.25,499 C889.25,499 901.355,499 915.919,499 " fill="none" id="NonLoanableItem-backto-Magazine" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="882.25,394.69,889.25,374.69,896.25,394.69,882.25,394.69" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ee5781a6cb809406d927f1cd95f81ed2]
 reverse link Item to LoanableItem--><g id="link_Item_LoanableItem"><path d="M696.833,164.519 C696.833,164.519 696.833,264 696.833,264 C696.833,264 457.5,264 457.5,264 C457.5,264 457.5,282.223 457.5,301.94 " fill="none" id="Item-backto-LoanableItem" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="689.833,164.519,696.833,144.519,703.833,164.519,689.833,164.519" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[17f6e8f068121f3cc20c5dd6b504ba2c]
 reverse link LoanableItem to Book--><g id="link_LoanableItem_Book"><path d="M482,419.124 C482,419.124 482,466.669 482,466.669 " fill="none" id="LoanableItem-backto-Book" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="475,419.124,482,399.124,489,419.124,475,419.124" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[52d6f56e7b7b096a9926d87dccadb672]
-reverse link LoanableItem to AudioVideoMaterial--><g id="link_LoanableItem_AudioVideoMaterial"><path d="M355,419.124 C355,419.124 355,474.8622 355,474.8622 " fill="none" id="LoanableItem-backto-AudioVideoMaterial" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="348,419.124,355,399.124,362,419.124,348,419.124" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[02ab2ea43e1f519fe85968d25028481d]
+reverse link LoanableItem to AudioVideoMaterial--><g id="link_LoanableItem_AudioVideoMaterial"><path d="M355,419.124 C355,419.124 355,474.8622 355,474.8622 " fill="none" id="LoanableItem-backto-AudioVideoMaterial" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="348,419.124,355,399.124,362,419.124,348,419.124" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[894aa32bbeca0adc63eed17e3b0bae1f]
 @startuml
 skinparam linetype ortho
 skinparam shadowing false
@@ -192,7 +192,7 @@ getDate() : Date
 }
 @enduml
 
-PlantUML version 1.2022.13beta1(Unknown compile time)
+PlantUML version 1.2022.13beta8(Unknown compile time)
 (GPL source distribution)
 Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
