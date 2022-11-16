@@ -2077,7 +2077,7 @@
 <span class="linenos" data-linenos="300 "></span>
 <span class="linenos" data-linenos="301 "></span><span class="sd">    &quot;&quot;&quot;</span>
 <span class="linenos" data-linenos="302 "></span>    <span class="k">return</span> <span class="n">user_task</span><span class="p">([</span>
-<span class="linenos" data-linenos="303 "></span>        <span class="s1">&#39;rm -f game/assets/maps/player_save_file game/assets/maps/map_save_file.json&#39;</span><span class="p">,</span>
+<span class="linenos" data-linenos="303 "></span>        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">resolve_python</span><span class="p">()</span><span class="si">}</span><span class="s1"> -c &quot;from game.core import remove_saved_data; remove_saved_data()&quot;&#39;</span><span class="p">,</span>
 <span class="linenos" data-linenos="304 "></span>    <span class="p">])</span>
 </code></pre></div>
       </details>
@@ -2322,11 +2322,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2022</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2022</span>
       
     
   </small>
