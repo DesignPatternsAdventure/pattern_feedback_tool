@@ -2,6 +2,12 @@
 
 ### Fix
 
+- use the public method from game.core for reset
+
+## 0.3.12 (2022-11-13)
+
+### Fix
+
 - use relative path for the executable
 - add missing reset_map task
 
