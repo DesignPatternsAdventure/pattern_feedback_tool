@@ -300,7 +300,7 @@ def task_reset_map() -> DoitTask:
 
     """
     return user_task([
-        'rm -f game/assets/maps/player_save_file game/assets/maps/map_save_file.json',
+        f'{resolve_python()} -c "from game.core import remove_saved_data; remove_saved_data()"',
     ])
 
 
