@@ -10,7 +10,7 @@
   ],
   "_json": {
     "actions": [
-      "rm -f game/assets/maps/player_save_file game/assets/maps/map_save_file.json"
+      ".nox/coverage-3-10/bin/python -c \"from game.core import remove_saved_data; remove_saved_data()\""
     ],
     "title": "<function user_task.<locals>.<lambda>(..)>",
     "verbosity": 2
